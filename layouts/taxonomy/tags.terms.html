@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="section-breadcrumb">
+  <div class="breadcrumb-wrapper">
+    <div class="container-default">
+      <div class="breadcrumb-block">
+        <h1 class="breadcrumb-title">  
+      All Tags
+        </h1>
+  <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+    {{ range .Data.Terms.Alphabetical }}
+    <li>
+      <a href="{{ .Page.RelPermalink }}" class="block p-3 rounded bg-gray-100 hover:bg-gray-300 transition duration-500 ease-in-out">
+        <span class="text-xl font-bold">{{ .Page.LinkTitle }}</span>
+        <span class="block text-xs mt-1 text-gray-500">{{ .Count }} item</span>
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+  </div>
+</div>
+</div>
+</section>
+{{ end }}

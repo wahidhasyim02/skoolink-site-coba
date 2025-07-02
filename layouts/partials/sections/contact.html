@@ -1,0 +1,68 @@
+{{ $fitur := site.GetPage "sections/contact.md" }}
+{{ if $fitur }}
+<section class="section-features" id="section-contact">
+  <div class="rounded-[30px] bg-ColorMidnightMoss lg:rounded-[50px]">
+    <div class="section-space">
+      <div class="container-default">
+
+        <!-- Title -->
+        <div class="jos mb-[60px] text-center xl:mb-20">
+          <h2 class="mx-auto max-w-[746px] font-Kanit text-4xl font-medium leading-none -tracking-[1px] text-white lg:text-5xl xl:text-7xl xxl:text-[80px]">
+            {{ $fitur.Title }}
+          </h2>
+        </div>
+
+        <!-- Grid: 2 kolom utama -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+          <!-- Kolom kiri: 4 kotak kontak -->
+           
+            {{ range $fitur.Params.features }}
+            <div class="jos" data-jos_delay="{{ .delay }}">
+              <div class="rounded-[10px] bg-white/5 p-10 h-full">
+                <div class="mb-[30px] h-[70px] w-auto">
+                  <img src="{{ .icon }}" alt="{{ .title | urlize }}" width="80" height="70" />
+                </div>
+                <div class="flex-1">
+                  <div class="mb-4 font-Kanit text-2xl uppercase font-medium leading-[1.28] tracking-[-0.5px] text-white">
+                    {{ .title }}
+                  </div>
+                  <div class="text-xl [&>p]:leading-6 tracking-[-0.5px] text-white/80">
+                    {{ if eq .title "WhatsApp" }}
+                    <a href="https://wa.me/{{ site.Params.whatsApp }}" target="_blank" rel="noopener">{{ site.Params.phone }}</a>
+                    {{ else if eq .title "Email" }}
+                    <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>
+                    {{ else if eq .title "Kantor Tim Pengembang" }}
+                    {{ site.Params.RandD | safeHTML }}
+                    {{ else if eq .title "Kantor Pusat" }}
+                    {{ site.Params.address | safeHTML }}
+                    {{ end }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{ end }}
+          
+{{ if .Site.IsServer }}
+          <!-- Kolom kanan: Contact Form -->
+         <div class="jos hidden rounded-lg bg-white/5 p-8 text-ColorBlack shadow-lg flex flex-col justify-center items-center" data-jos_delay="0.8">
+  <form action="#" method="post" class="space-y-6 w-full">
+    <input type="text" name="name" placeholder="Enter your Name"
+      class="w-full px-4 py-3 rounded bg-white/5 border border-white/5 focus:outline-none focus:ring-2 focus:ring-[#15cf92]" required>
+    <input type="email" name="email" placeholder="Enter a valid email address"
+      class="w-full px-4 py-3 rounded bg-white/5 border border-white/5 focus:outline-none focus:ring-2 focus:ring-[#15cf92]" required>
+    <textarea name="message" rows="5" placeholder="Your Message"
+      class="w-full px-4 py-3 rounded bg-white/5 border border-white/5 focus:outline-none focus:ring-2 focus:ring-[#15cf92]" required></textarea>
+    <button type="submit" class="btn is-caribbean-green is-transparent is-rounded is-large group flex w-full items-center justify-center border-2">
+      SUBMIT
+    </button>
+  </form>
+         </div>
+{{ end }}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

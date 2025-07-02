@@ -1,0 +1,42 @@
+{{ $section := site.GetPage "sections/faq-umum.md" }}
+{{ if $section }}
+<!--...::: FAQ Section Start :::... -->
+<section class="section-faq">
+    <div class="section-space">
+        <div class="container-default">
+            <div class="jos mb-[60px] xl:mb-20">
+                <div class="mx-auto max-w-[746px]">
+                    <div class="mb-5">
+                        <h2
+                            class="text-center font-Kanit text-4xl font-medium leading-none -tracking-[1px] text-ColorMidnightMoss lg:text-5xl xl:text-7xl xxl:text-[80px]">
+                            {{ $section.Params.intro_title }}
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="jos grid grid-cols-1 gap-6">
+                {{ range $index, $faq := $section.Params.faq }}
+                <li class="accordion-item {{ if eq $index 0 }}active{{ end }} overflow-hidden rounded-[10px] border border-ColorMidnightMoss p-[30px]">
+                    <div
+                        class="accordion-header flex justify-between gap-6 font-Kanit text-xl font-medium leading-[1.28] -tracking-[1px] text-ColorMidnightMoss lg:text-2xl xl:text-[28px]">
+                        <button class="flex-1 text-left">
+                            {{ $faq.title }}
+                        </button>
+                        <div
+                            class="accordion-icon-5 relative flex h-[50px] w-[50px] items-center justify-center rounded-[50%] border-2 border-ColorMidnightMoss text-2xl text-ColorMidnightMoss">
+                            <i class="fa-regular fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-body max-w-[1156px] text-xl text-[#2c2c2c] opacity-80">
+                        <p class="pt-4 lg:pt-2 xl:pt-1">
+                            {{ $faq.description }}
+                        </p>
+                    </div>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</section>
+{{ end }}

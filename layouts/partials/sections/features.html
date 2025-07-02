@@ -1,0 +1,44 @@
+{{ $fitur := site.GetPage "sections/features.md" }}
+{{ if $fitur }}
+<!--...::: Features Section Start :::... -->
+<section class="section-features" id="section-feature">
+  <div class="rounded-[30px] bg-ColorMidnightMoss lg:rounded-[50px]">
+    <div class="section-space">
+      <div class="container-default">
+
+        <div class="jos mb-[60px] xl:mb-20">
+          <div class="mx-auto max-w-[746px]">
+            <div class="mb-5">
+              <h2 class="text-center font-Kanit text-4xl font-medium leading-none -tracking-[1px] text-white lg:text-5xl xl:text-7xl xxl:text-[80px]">
+                {{ $fitur.Title }}
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {{ range $fitur.Params.features }}
+          <div class="jos" data-jos_delay="{{ .delay }}">
+            <div class="rounded-[10px] bg-white/5 p-10 h-full">
+              <div class="mb-[30px] h-[70px] w-auto">
+                <img src="{{ .icon }}" alt="{{ .title | urlize }}" width="80" height="70" />
+              </div>
+              <div class="flex-1">
+                <div class="mb-4 font-Kanit text-2xl font-medium leading-[1.28] tracking-[-0.5px] text-white">
+                  {{ .title }}
+                </div>
+                <p class="text-xl tracking-[-0.5px] text-white/80">
+                  {{ .summary }}
+                </p>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!--...::: Features Section End :::... -->
+{{ end }}

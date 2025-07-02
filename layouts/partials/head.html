@@ -1,0 +1,67 @@
+<!-- Charset & Viewport -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<!-- Theme Color -->
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+<!-- Meta Description & Robots -->
+<meta name="description" content="{{ .Params.summary }}">
+<meta name="robots" content="index, follow">
+
+<!-- Title -->
+<title>
+  {{ if .IsHome }}{{ site.Title }} - Aplikasi Sekolah Terintegrasi{{ else }}{{ .Title }} - {{ site.Title }}{{ end }}
+</title>
+
+<!-- Open Graph Meta -->
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }} - Aplikasi Sekolah Terintegrasi{{ else }}{{ .Title }} - {{ site.Title }}{{ end }}">
+<meta name="description" content="{{ with .Params.summary }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<meta property="og:image" content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ "images/logo_skoolink.og.png" | absURL }}{{ end }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+
+<!-- Twitter Meta -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }} - Aplikasi Sekolah Terintegrasi{{ else }}{{ .Title }} - {{ site.Title }}{{ end }}">
+<meta name="twitter:description" content="{{ .Params.summary }}">
+<meta name="twitter:image" content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ "images/logo_skoolink.og.png" | absURL }}{{ end }}">
+<meta name="twitter:url" content="{{ .Permalink }}">
+<!-- 🔸 Favicon -->
+<link rel="icon" href="/img/favicon.png" type="image/png" />
+<link rel="apple-touch-icon" href="/img/icons/logo_skoolink_square_100.png">
+<link rel="shortcut icon" href="/img/icons/logo_skoolink_square_100.png">
+
+<!-- 🔸 Font Lokal (Inter, Kanit, Rubik) -->
+<link rel="stylesheet" href="/fonts/webfonts/inter/stylesheet.css" />
+<link rel="stylesheet" href="/fonts/webfonts/kanit/stylesheet.css" />
+<link rel="stylesheet" href="/fonts/webfonts/rubik/stylesheet.css" />
+<!-- 🔸 Font Awesome (lokal) -->
+<link rel="stylesheet" href="/fonts/iconfonts/font-awesome/stylesheet.css" />
+
+<!-- 🔸 Vendor CSS -->
+<link rel="stylesheet" href="/css/vendors/swiper-bundle.min.css" />
+<link rel="stylesheet" href="/css/vendors/jos.css" />
+<link rel="stylesheet" href="/css/vendors/menu.css" />
+
+<!-- 🔸 Custom CSS -->
+<link rel="stylesheet" href="/css/custom.css" />
+
+<!-- 🔸 Tailwind CSS (Hugo pipeline) -->
+{{ $css := resources.Get "css/main.css" }}
+{{ if $css }}
+  {{ if eq hugo.Environment "development" }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  {{ else }}
+    {{ $css = $css | resources.PostCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+  {{ end }}
+{{ else }}
+  {{ warnf "❌ File css/main.css tidak ditemukan!" }}
+{{ end }}
+
+<!-- 🔸 Opsional: Abaikan style.min.css jika sudah pakai Tailwind -->
+<!-- <link rel="stylesheet" href="/css/style.min.css"> -->
+ 

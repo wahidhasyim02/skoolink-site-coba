@@ -1,0 +1,62 @@
+{{ $about := site.GetPage "sections/about.md" }}
+{{ if $about }}
+<!--...::: Content Section Start :::... -->
+<section class="section-content" id="section-about">
+  <div class="section-space-bottom">
+    <div class="container-default">
+      <div class="flex flex-col gap-y-20 lg:gap-y-[100px] xl:gap-y-[120px]">
+
+        <!-- Content Area Single -->
+        <div
+          class="grid items-center gap-10 lg:grid-cols-2 lg:gap-24 xl:grid-cols-[0.8fr_minmax(0,_1fr)] xl:gap-[135px]">
+
+          <!-- Content Block Left -->
+          <div class="jos order-1 md:order-2" data-jos_animation="fade-right">
+            <div>
+              <div class="mb-5">
+                <h2
+                  class="font-Kanit text-4xl font-medium leading-none -tracking-[1px] lg:text-5xl xl:text-7xl xxl:text-[80px]">
+                  {{ $about.Title }}
+                </h2>
+              </div>
+            </div>
+            <p>{{ $about.Params.summary }}</p>
+            <p>{{ $about.Params.sub_summary }}</p>
+            <div class="mt-8 lg:mt-[50px]">
+              {{ $btnURL := $about.Params.button_url }}
+              {{ if eq $btnURL "" }}
+              {{ $btnURL = printf "https://wa.me/%s" site.Params.whatsapp }}
+              {{ end }}
+              <a href="{{ $btnURL }}" target="_blank" rel="noopener"
+                class="btn is-caribbean-green is-transparent btn-animation is-large is-rounded group inline-block">
+                <span>
+                  {{ $about.Params.button_label }}
+                  <i class="fa-regular fa-arrow-right ml-[10px] text-2xl leading-none"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Content Block Right -->
+          <div class="jos order-2 lg:order-1" data-jos_animation="fade-left">
+            <div class="relative">
+              <div class="bg-cover overflow-hidden w-fit h-fit">
+                <img src="{{ $about.Params.image_main }}" width="586" height="586" alt="content-main" 
+                  class="h-full w-full object-cover bg-red-400" />
+              </div>
+              <div class="absolute -right-[110px] bottom-12 md:bottom-12 hidden xl:inline-block bg-cover overflow-hidden h-[243px] w-[353px]"> 
+                <img src="{{ $about.Params.image_overlay }}" alt="content-overlay" height="243" width="353"
+                  class="object-cover h-full w-full" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Content Area Single -->
+
+      </div>
+    </div>
+  </div>
+</section>
+<!--...::: Content Section End :::... -->
+{{ end }}

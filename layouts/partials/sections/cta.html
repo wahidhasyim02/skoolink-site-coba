@@ -1,0 +1,29 @@
+{{ $section := site.GetPage "sections/cta.md" }}
+{{ if $section }}
+<div class="max-w-[720px]">
+    <h2
+        class="text-center font-Kanit text-4xl font-medium leading-none -tracking-[1px] text-ColorMidnightMoss lg:text-5xl xl:text-7xl xxl:text-[80px]">
+        {{ $section.Params.heading }}
+    </h2>
+    <p class="mt-5 text-center text-[#2c2c2c]">
+        {{ $section.Params.description }}
+    </p>
+
+    <div class="mt-8 text-center lg:mt-[50px]">
+        <div class="mb-3 flex flex-wrap justify-center gap-6">
+            {{ range $section.Params.buttons }}
+            {{ $btnURL := .href }}
+            {{ if eq $btnURL "" }}
+            {{ $btnURL = printf "https://wa.me/%s" site.Params.whatsapp }}
+            {{ end }}
+            <a href="{{ $btnURL }}" target="_blank" rel="noopener" class="btn {{ .style }} btn-animation is-large is-rounded group inline-block">
+                <span>{{ .label }}<i class="fa-regular fa-arrow-right ml-[10px] text-2xl leading-none"></i></span>
+            </a>
+            {{ end }}
+        </div>
+        <div>
+            <span class="text-sm text-[#7F8995]">{{ $section.Params.note }}</span>
+        </div>
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,187 @@
+<div
+    class="relative jos z-10 rounded-tl-[30px] rounded-tr-[30px] bg-[#FFFCEF] lg:rounded-tl-[50px] lg:rounded-tr-[50px] xl:rounded-tl-[100px] xl:rounded-tr-[100px]">
+    <!-- Footer Area Top -->
+    <div class="relative z-10">
+        <!-- Footer Top Spacing -->
+        <div class="pb-[60px] pt-20 lg:pb-20 lg:pt-[100px] xl:pt-[120px]">
+            <!-- Section Container -->
+            <div class="container-default">
+                <!-- Section Wrapper -->
+                <div class="flex flex-col items-center justify-center">
+                    <!-- Section Block -->
+                    {{ partial "sections/cta.html" . }}
+                    <!-- Section Block -->
+                </div>
+                <!-- Section Wrapper -->
+            </div>
+            <!-- Section Container -->
+        </div>
+        <!-- Footer Top Spacing -->
+    </div>
+    <!-- Footer Area Top -->
+
+    <!-- Horizontal Line Separator -->
+    <div class="horizontal-line bg-white"></div>
+    <!-- Horizontal Line Separator -->
+
+    <!-- Footer Area Center -->
+    <div class="border-t border-[#EAEDF0] text-[#2C2C2C]">
+        <!-- Footer Center Spacing -->
+        <div class="py-[60px] lg:py-20 xl:py-[100px]">
+            <!-- Section Container -->
+            <div class="container-default">
+                <!-- Footer Widget List -->
+                <div
+                    class="grid gap-x-16 gap-y-10 sm:grid-cols-2 lg:grid-cols-[1fr_repeat(3,_auto)] xl:gap-x-24 xxl:gap-x-[134px]">
+                    <!-- Footer Widget Item -->
+                    <div class="flex flex-col gap-y-7">
+                        <!-- Footer Logo -->
+                        <a href="/">
+                            <img src="{{ site.Params.logo }}" width="109" height="24" alt="{{ site.Title }}" />
+                        </a>
+                        <!-- Footer Content -->
+                        <div>
+                            <!-- Footer About Text -->
+                            {{ with site.GetPage "legal/about-us" }}
+                            {{ with .Params.footerText }}
+                            <div class="max-w-[416px]">
+                                {{ . }}
+                            </div>
+                            {{ end }}
+                            {{ end }} 
+
+                            
+                            <!-- Footer Mail -->
+                            <a href="mailto:{{ site.Params.email }}"
+                                class="my-6 block underline-offset-4 transition-all duration-300 hover:underline">{{
+                                site.Params.email }}</a>
+                            
+                        </div>
+                        <!-- Footer Content -->
+                    </div>
+                    <!-- Footer Widget Item -->
+
+                    <!-- Footer Widget Item -->
+                    <div class="flex flex-col gap-y-7">
+                        <!-- Footer Widget Title -->
+                        <div class="text-xl font-semibold capitalize text-ColorMidnightMoss">
+                            Halaman Utama
+                        </div>
+                        <!-- Footer Navbar -->
+                        <ul class="flex flex-col gap-y-[10px] capitalize">
+                            {{ range site.Menus.primary }}
+                            <li>
+                                <a href="{{ .URL }}"
+                                    class="hover:opcity-100 underline-offset-4 transition-all duration-300 ease-linear hover:underline">{{
+                                    .Name }}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                    <!-- Footer Widget Item -->
+                   {{ if .Site.IsServer }}
+                    <!-- Footer Widget Item -->
+                    <div class="flex flex-col gap-y-6">
+                        <!-- Footer Title -->
+                        <div class="text-xl font-semibold capitalize text-ColorMidnightMoss">
+                            Utility pages
+                        </div>
+                        <!-- Footer Title -->
+
+                        <!-- Footer Navbar -->
+                        <ul class="flex flex-col gap-y-[10px] capitalize">
+                            {{ range site.Menus.utility }}
+                            <li>
+                                <a href="{{ .URL }}"
+                                    class="hover:opcity-100 underline-offset-4 transition-all duration-300 ease-linear hover:underline">{{
+                                    .Name }}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                    <!-- Footer Widget Item-->
+
+                    <!-- Footer Widget Item -->
+                    <div class="flex flex-col gap-y-6">
+                        <!-- Footer Title -->
+                        <div class="text-xl font-semibold capitalize text-ColorMidnightMoss">
+                            Subscribe to Our Newsletter
+                        </div>
+                        <!-- Footer Title -->
+
+                        <!-- Footer Newsletter Form -->
+                        <form action="#" method="post">
+                            <div class="relative flex items-center justify-end">
+                                <input type="email" placeholder="Enter your email"
+                                    class="w-full rounded-[50px] border border-ColorMidnightMoss px-6 py-2 pr-20 outline-none focus:border-ColorCaribbeanGreen"
+                                    required />
+                                <button type="submit"
+                                    class="absolute mr-[5px] flex h-10 w-[60px] items-center justify-center rounded-[50px] bg-ColorCaribbeanGreen">
+                                    <span><i class="fa-regular fa-arrow-right text-2xl"></i></span>
+                                </button>
+                            </div>
+                        </form>
+                        <!-- Footer Newsletter Form -->
+                    </div>
+                    <!-- Footer Widget Item -->{{ end }}
+                </div>
+                <!-- Footer Widget List -->
+            </div>
+            <!-- Section Container -->
+        </div>
+        <!-- Footer Center Spacing -->
+    </div>
+    <!-- Footer Area Center -->
+
+    <!-- Footer Bottom -->
+    <div class="border-t border-[#EAEDF0]">
+        <!-- Footer Bottom Spacing -->
+        <div class="py-[18px]">
+            <!-- Section Container -->
+            <div class="container-default">
+                <div class="flex flex-col items-center gap-5 lg:flex-row lg:items-start lg:justify-between">
+                    <div class="flex flex-wrap gap-5">
+                        {{ range site.Params.social }}
+                                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer"
+                                    class="flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-ColorMidnightMoss/10 text-sm text-ColorMidnightMoss transition-all duration-300 hover:bg-ColorCaribbeanGreen"
+                                    aria-label="{{ .name }}">
+                                    <i class="fa-brands {{ .icon }}"></i>
+                                </a>
+                                {{ end }}
+                    </div>
+                    <div class="text-center text-ColorMidnightMoss text-opacity-80">
+                        &copy; Copyright 2025, All Rights Reserved Oleh Skoolink
+                    </div>
+                </div>
+            </div>
+            <!-- Section Container -->
+        </div>
+        <!-- Footer Bottom Spacing -->
+    </div>
+    <!-- Footer Bottom -->
+
+    <!-- Footer Background Shape -->
+    <div class="absolute left-0 top-10 -z-10 h-auto w-full">
+        <img src="/img/elements/hero-10-bg-shape.svg" alt="hero-10-bg-shape" width="1600" height="650"
+            class="h-auto w-full" />
+    </div>
+</div>
+
+
+{{/* ========== Load vendor counterup.js as module ========== */}}
+{{ $counterup := resources.Get "js/vendors/counterup.js" | resources.Fingerprint }}
+<script type="module" src="{{ $counterup.RelPermalink }}" integrity="{{ $counterup.Data.Integrity }}" crossorigin="anonymous"></script>
+
+{{/* ========== Load & bundle all other JS files ========== */}}
+{{ $scripts := slice
+  (resources.Get "js/vendors/swiper-bundle.min.js")
+  (resources.Get "js/vendors/fslightbox.js")
+  (resources.Get "js/vendors/jos.min.js")
+  (resources.Get "js/vendors/menu.js")
+  (resources.Get "js/main.js")
+  (resources.Get "js/custom.js")
+}}
+
+{{ $bundle := $scripts | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint }}
+
+<script src="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}" crossorigin="anonymous" defer></script>

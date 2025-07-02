@@ -1,0 +1,96 @@
+{{ $hero := site.GetPage "sections/hero.md" }}
+{{ if $hero }}
+<section class="section-hero">
+    <div class="relative z-10">
+        <!-- Section Space -->
+        <div class="pb-20 pt-28 md:pt-36 lg:pb-[100px] lg:pt-[150px] xxl:pb-[120px] xxl:pt-[185px]">
+            <!-- Section Container -->
+            <div class="container-default jos">
+                <!-- Hero Area -->
+                <div class="grid items-center gap-10 lg:grid-cols-[1fr,minmax(0,_0.6fr)] lg:gap-20 xl:gap-[122px]">
+                    <!-- Hero Content Block -->
+                    <div class="jos mx-auto max-w-[500px] lg:mx-0 lg:max-w-none">
+                        <div
+                            class="flex flex-col items-center justify-center text-center lg:items-start lg:justify-normal lg:text-left">
+                            <h1
+                                class="mb-6 text-4xl font-extrabold leading-[1.11] -tracking-[1px] md:text-5xl lg:text-6xl xl:text-7xl xxl:text-[90px]">
+                                {{ $hero.Title }}</h1>
+                            <p class="mb-10 xl:mb-[50px]">{{ $hero.Params.summary }}</p>
+                            {{ if .Site.IsServer }}
+                            <!-- Avatars & Stats -->
+                            <div class="mb-8 flex flex-wrap items-center gap-[10px] lg:mb-[50px]">
+                                <!-- Hero Avatar Block-->
+                                <div class="flex">
+                                    {{ range $hero.Params.avatars }}
+                                    <img src="{{ .src }}" alt="{{ .alt }}" width="58" height="58"
+                                        class="-ml-[15px] h-[58px] w-[58px] rounded-[50%] first:-ml-0" />
+                                    {{ end }}
+                                </div>
+
+                                <ul class="flex gap-12 text-ColorBlack">
+
+                                    {{ range $hero.Params.stats }}
+                                    <li
+                                        class="relative after:absolute after:left-[calc(100%+_24px)] after:top-1/2 after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-ColorBlack/10 last:after:hidden">
+                                        <div class="text-[30px] font-bold leading-[1.4] -tracking-[1px]">{{ .value }}
+                                        </div>
+                                        <div class="flex gap-[5px] text-base">
+                                            {{ if .stars }}
+                                            {{ range seq 1 .stars }}
+                                            <img src="/img/icons/icon-green-star.svg" alt="star" width="17"
+                                                height="17" />
+                                            {{ end }}
+                                            {{ end }}
+                                            {{ .label }}
+                                        </div>
+                                    </li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                            {{ end }}
+                            <!-- CTA Button -->
+                            <div class="mb-3 flex flex-wrap justify-center gap-6">
+                                {{ range $hero.Params.cta }}
+                                {{ $btnURL := .button_url }}
+                                {{ if eq $btnURL "" }}
+                                {{ $btnURL = printf "https://wa.me/%s" site.Params.whatsapp }}
+                                {{ end }}
+                                <a href="{{ $btnURL }}" target="_blank" rel="noopener" class="btn {{ if eq .style "primary" }}is-caribbean-green is-transparent{{ else }}is-outline-midnight-moss{{ end
+                                    }} btn-animation is-large is-rounded group inline-block">
+                                    <span>{{ .label }}</span>
+                                </a>
+                                {{ end }}
+                            </div>
+
+                            <!-- Catatan Kecil -->
+                            <div class="mb-10">
+                                <span class="text-sm text-[#7F8995]">{{ $hero.Params.note }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gambar Mockup -->
+                    <div class="jos">
+                        <div class="relative z-10 mx-auto max-w-[280px] sm:max-w-[500px] lg:ml-auto lg:mr-0">
+                            <img src="{{ $hero.Params.main_image }}" alt="hero" width="612" height="1272"
+                                class="z-10 mx-auto h-[635px] w-[306px]" />
+                            <img src="/img/elements/hero-3-shapes-1.svg" alt="shape-1"
+                                class="absolute -left-[12%] top-[15%] -z-10" /> 
+                            <img src="/img/elements/maskot.png" alt="maskot-skoolink"
+                                class="absolute md:hidden -left-[20%] sm:-left-[10%] lg:-bottom-[15%] -bottom-[10%] lg:-left-[50%] xl:-left-[40%] lg:bottom-[0%] h-60 -rotate-[0deg] w-auto z-20" />
+                                 <img src="/img/elements/maskot-lg.png" alt="maskot-skoolink"
+                                class="absolute hidden md:inline-block -left-[20%] sm:-left-[10%] lg:-bottom-[15%] -bottom-[10%] lg:-left-[50%] xl:-left-[40%] lg:bottom-[0%] h-60 -rotate-[0deg] w-auto z-20" />
+                            <img src="/img/elements/hero-3-shapes-1.svg" alt="shape-2"
+                                class="absolute -right-[10%] bottom-[18%] -z-10" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <img src="/img/elements/hero-3-bg-shape.svg" alt="hero-bg"
+            class="absolute left-0 top-0 -z-10 hidden h-full w-auto xl:block" />
+    </div>
+</section>
+{{ end }}

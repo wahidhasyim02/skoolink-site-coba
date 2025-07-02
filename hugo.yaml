@@ -1,0 +1,112 @@
+baseURL: https://skoolink.id/
+languageCode: en-us
+title: Skoolink
+params:
+  logo: /img/logoskoolink.svg
+  favicon: /img/favicon.png
+  defaultImage: /img/logo_skoolink.og.png
+  email: hello@skoolink.id
+  phone: +62 877-0101-1100
+  whatsApp: "6287701011100"
+  address: |-
+    <p>Jl. Cililitan Besar No.3 </p>
+    <p>Jakarta Timur 13570</p><p>Indonesia</p>
+  RandD: '<p>Ruko Blok A No. 5 Perum Graha Indah,</p><p>Lamongan 62281</p><p>Jawa Timur.</p> '
+  social:
+    - name: twitter
+      url: https://twitter.com
+      icon: fa-x-twitter
+    - name: facebook
+      url: https://www.facebook.com/
+      icon: fa-facebook-f
+    - name: instagram
+      url: https://www.instagram.com/
+      icon: fa-instagram
+    - name: github
+      url: https://www.github.com/
+      icon: fa-github
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: 1
+    - name: Tentang
+      url: /#section-about
+      weight: 2
+    - name: Fitur
+      url: /#section-feature
+      weight: 3
+    - name: Harga
+      url: /#section-pricing
+      weight: 4
+    - name: Testimonial
+      url: /#section-testimonial
+      weight: 5
+    - name: Blog
+      url: /#section-blog
+      weight: 6
+    - name: Kontak
+      url: /#section-contact
+      weight: 7
+  primary:
+    - name: Home
+      url: /
+      weight: 1
+    - name: Tentang
+      url: /#section-about
+      weight: 2
+    - name: Fitur
+      url: /#section-feature
+      weight: 3
+    - name: Harga
+      url: /#section-pricing
+      weight: 4
+    - name: Kontak
+      url: /#section-contact
+      weight: 5
+  utility:
+    - name: Signup
+      url: /signup
+      weight: 1
+    - name: Login
+      url: /login
+      weight: 2
+    - name: 404 Not Found
+      url: /404.html
+      weight: 3
+    - name: Password Reset
+      url: /reset-password
+      weight: 4
+      paginate: 10
+taxonomies:
+  category: categories
+  tag: tags
+  author: authors
+  defaultContentLanguage: id
+  timeZone: Asia/Jakarta
+related:
+  threshold: 80
+  includeNewer: true
+  toLower: true
+  indices:
+    - name: tags
+      weight: 100
+    - name: categories
+      weight: 80
+module:
+  hugoVersion:
+    extended: false
+    min: 0.116.0
+outputs:
+  home:
+    - HTML
+  page:
+    - HTML
+  section:
+    - HTML
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+      aliases:
+        - /about-us/

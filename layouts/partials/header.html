@@ -1,0 +1,50 @@
+<header class="site-header sticky site-header--absolute is-white py-3" id="sticky-menu">
+  <div class="container-default group">
+    <div class="flex items-center justify-between gap-x-8">
+      <!-- Header Logo -->
+      <a href="/" class="">
+           <img src="{{ site.Params.logo }}" width="109" height="24" alt="{{ site.Title }}" />   
+      </a>
+      <!-- Header Logo -->
+
+      <!-- Header Navigation -->
+      <div class="menu-block-wrapper">
+        <div class="menu-overlay"></div>
+        <nav class="menu-block" id="append-menu-header">
+          <div class="mobile-menu-head">
+            <div class="go-back">
+              <i class="fa-solid fa-angle-left"></i>
+            </div>
+            <div class="current-menu-title"></div>
+            <div class="mobile-menu-close">&times;</div>
+          </div>
+          <ul class="site-menu-main">
+            {{ range site.Menus.main }}
+            <li class="nav-item nav-item-has-children">
+              <a href="{{ .URL }}" class="nav-link-item drop-trigger">{{ .Name }}</a>
+            </li>
+            {{ end }}
+          </ul>
+
+        </nav>
+      </div>
+      <!-- Header Navigation -->
+
+      <!-- Header User Event -->
+      <div class="flex items-center gap-6 group">
+        <a href="https://wa.me/{{ site.Params.whatsapp }}" target="_blank" rel="noopener" 
+          class="btn is-caribbean-green is-transparent is-rounded btn-animation group hidden sm:inline-block"><span>Hubungi
+            Kami</span></a>
+        <!-- Responsive Offcanvas Menu Button -->
+        <div class="block lg:hidden">
+          <button id="openBtn" class="hamburger-menu mobile-menu-trigger">
+            <span class=""></span>
+            <span class=""></span>
+            <span class=""></span>
+          </button>
+        </div>
+      </div>
+      <!-- Header User Event -->
+    </div>
+  </div>
+</header>

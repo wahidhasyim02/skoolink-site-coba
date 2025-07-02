@@ -1,0 +1,216 @@
+{{ define "main" }}
+<div class="main-wrapper relative overflow-hidden">
+  <!-- Breadcrumb Section (sementara nonaktif)
+  {{/* partial "components/breadcrumb.html" (dict "title" .Title "items" (slice (dict "label" "Home" "url" "/") (dict "label" .Title))) */}}
+  -->
+
+  <!-- Manual Breadcrumb -->
+  <section class="section-breadcrumb">
+    <div class="breadcrumb-wrapper">
+      <div class="container-default">
+        <div class="breadcrumb-block">
+          <h1 class="breadcrumb-title">{{ .Title }}</h1>
+          {{ with .Params.breadcrumb }}
+          <ul class="breadcrumb-nav">
+            {{ range $index, $item := . }}
+              <li>
+                {{ if $item.url }}
+                  <a href="{{ $item.url }}">{{ $item.label }}</a>
+                {{ else }}
+                  {{ $item.label }}
+                {{ end }}
+              </li>
+            {{ end }}
+          </ul>
+          {{ end }}
+        </div>
+      </div>
+      <div class="absolute left-0 top-0 -z-10">
+        <img src="/img/elements/breadcrumb-shape-1.svg" alt="breadcrumb-shape-1" width="291" height="380" />
+      </div>
+      <div class="absolute bottom-0 right-0 -z-[1]">
+        <img src="/img/elements/breadcrumb-shape-2.svg" alt="breadcrumb-shape-2" width="291" height="380" />
+      </div>
+    </div>
+  </section>
+
+  <!-- About Gallery Section -->
+  <section class="section-about-gallery section-space">
+    <div class="container-default">
+      <div class="grid gap-x-6 gap-y-10 sm:grid-cols-3">
+        {{ range .Params.gallery }}
+          <div class="jos" data-jos_animation="fade-up">
+            <img src="{{ .image }}" alt="about-gallery" class="rounded-lg" />
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Hero Section -->
+  <section class="section-about-hero relative z-10 overflow-hidden bg-[#FAF9F5]">
+    <div class="section-space">
+      <div class="container-custom has-container-custom">
+        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-[60px] xl:gap-[100px] xxl:grid-cols-[1fr_minmax(0,_1.1fr)]">
+          <div class="jos order-2 lg:order-1" data-jos_animation="fade-left">
+            <div class="relative flex items-center justify-center mx-auto lg:mx-0 max-w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-full">
+              <img src="{{ .Params.hero.image }}" alt="hero image" class="h-auto w-full" />
+              <a data-fslightbox="gallery" href="{{ .Params.hero.video }}" class="group absolute flex h-[100px] w-[100px] items-center justify-center rounded-full bg-white text-ColorBlue" aria-label="video-play">
+                <span class="text-2xl transition-all duration-300 ease-linear group-hover:scale-110">
+                  <i class="fa-solid fa-play"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="jos order-1 lg:order-2" data-jos_animation="fade-right">
+            <div>
+              <div class="mb-5">
+                <h2>{{ .Params.hero.title }}</h2>
+              </div>
+              <p>{{ .Params.hero.description }}</p>
+              <div class="my-7 h-px w-full bg-ColorBlack opacity-10 xl:my-10 xxl:my-14"></div>
+              <blockquote class="mb-6 font-semibold italic text-ColorBlack/80">
+                {{ .Content }}
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   {{ if .Site.IsServer }}
+  <!-- Stats Section -->
+  <section class="section-fact hidden section-space">
+    <div class="container-custom has-container-custom">
+      <div class="grid gap-10 gap-x-12 lg:grid-cols-2 xl:grid-cols-[1fr_minmax(0,_0.7fr)] xxl:gap-x-[185px]">
+        <div class="jos" data-jos_animation="fade-right">
+          <div>
+            <div class="mb-5">
+              <h2>Data Skoolink</h2>
+            </div>
+            <p>Beberapa pencapaian dan statistik yang menunjukkan kinerja Skoolink.</p>
+          </div>
+        </div>
+        <div>
+          <div class="grid items-center justify-center gap-6 sm:grid-cols-2 sm:gap-0.5 sm:bg-ColorOffWhite">
+            {{ range .Params.stats }}
+              <div class="text-center sm:bg-white sm:pb-10">
+                <div class="mb-1 font-PlusJakartaSans text-4xl font-extrabold leading-[1.2] text-ColorBlack sm:text-5xl lg:text-[64px] xl:text-[70px]">
+                  {{ .number }}{{ .unit }}
+                </div>
+                <span class="text-xl font-semibold text-ColorBlue">{{ .title }}</span>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}
+  <!-- Values Section -->
+  <section class="section-features bg-ColorOffWhite">
+    <div class="section-space">
+      <div class="container-default">
+        <div class="jos mb-[60px] xl:mb-20">
+          <div class="mx-auto max-w-[526px]">
+            <h2 class="text-center">Nilai Inti Kami</h2>
+          </div>
+        </div>
+        <div class="grid gap-10 sm:grid-cols-2 xl:grid-cols-3 xl:gap-10 xxl:gap-x-20 xxl:gap-y-[60px]">
+          {{ range .Params.values }}
+            <div class="jos" data-jos_animation="fade-left">
+              <div class="flex flex-col gap-6 text-center lg:flex-row lg:text-left">
+                <img src="{{ .icon }}" alt="icon" class="mx-auto h-[60px] w-[60px] lg:mx-0" />
+                <div>
+                  <div class="mb-4 text-xl font-semibold xxl:text-2xl">
+                    {{ .title }}
+                  </div>
+                  <p>{{ .description }}</p>
+                </div>
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="section-team bg-ColorOffWhite">
+    <div class="section-space">
+      <div class="container-default">
+        <div class="jos mb-[60px] xl:mb-20">
+          <div class="mx-auto max-w-[526px]">
+            <h2 class="text-center">Tim Pengembang</h2>
+          </div>
+        </div>
+        <div class="grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+          {{ range .Params.team }}
+            <div class="jos flex flex-col items-center justify-center rounded-[10px] bg-white p-5 text-center" data-jos_animation="flip-left">
+              <img src="{{ .image }}" alt="{{ .name }}" class="h-auto w-full rounded-[10px] lg:w-auto" />
+              <div class="mb-4 mt-6">
+                <div class="mb-1 text-xl font-semibold">{{ .name }}</div>
+                <span class="block text-opacity-80">{{ .position }}</span>
+              </div>
+              <div class="flex flex-wrap gap-[10px] xl:gap-4">
+                {{ range .social }}
+                  <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-ColorBlack bg-opacity-5 text-sm text-ColorBlack transition-all duration-300 hover:bg-ColorBlack hover:bg-opacity-100 hover:text-white" aria-label="{{ .name }}">
+                    <i class="fa-brands fa-{{ .name }}"></i>
+                  </a>
+                {{ end }}
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-faq section-space">
+    <div class="container-default">
+      <div class="jos mb-[60px] xl:mb-20">
+        <div class="mx-auto max-w-[625px]">
+          <h2 class="text-center">Pertanyaan Umum</h2>
+        </div>
+      </div>
+      <div class="jos">
+          <ul class="jos grid grid-cols-1 gap-6">
+                {{ range $index, $faq := .Params.faq }}
+                <li class="accordion-item {{ if eq $index 0 }}active{{ end }} overflow-hidden rounded-[10px] border border-ColorMidnightMoss p-[30px]">
+                    <div
+                        class="accordion-header flex justify-between gap-6 font-Kanit text-xl font-medium leading-[1.28] -tracking-[1px] text-ColorMidnightMoss lg:text-2xl xl:text-[28px]">
+                        <button class="flex-1 text-left">
+                            {{ $faq.question }}
+                        </button>
+                        <div
+                            class="accordion-icon-5 relative flex h-[50px] w-[50px] items-center justify-center rounded-[50%] border-2 border-ColorMidnightMoss text-2xl text-ColorMidnightMoss">
+                            <i class="fa-regular fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-body max-w-[1156px] text-xl text-[#2c2c2c] opacity-80">
+                        <p class="pt-4 lg:pt-2 xl:pt-1">
+                            {{ $faq.answer }}
+                        </p>
+                    </div>
+                </li>
+                {{ end }}
+            </ul>
+        
+        <div class="jos mt-[60px] flex justify-center xl:mt-20">
+          {{ range .Params.buttons }}
+            {{ $btnURL := .href }}
+            {{ if eq $btnURL "" }}
+            {{ $btnURL = printf "https://wa.me/%s" site.Params.whatsapp }}
+            {{ end }}
+          <a href="{{ $btnURL }}" target="_blank" rel="noopener" class="btn is-caribbean-green is-transparent btn-animation is-large is-rounded group inline-block">
+            <span>{{ .label }}</span>
+          </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{{ end }}

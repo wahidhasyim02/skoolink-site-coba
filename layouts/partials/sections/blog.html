@@ -1,0 +1,60 @@
+<section id="section-blog" class=section-space>
+    <div class=container-default>
+        <div class="mb-10 text-center jos">
+            {{ with site.GetPage "section" "blog" }}
+            <h2 class="text-center font-Kanit text-4xl font-medium leading-none -tracking-[1px] text-ColorMidnightMoss lg:text-5xl xl:text-7xl xxl:text-[80px]">
+                        {{ .Title }}</h2>
+            <p class="text-lg text-ColorBlack/70">{{ .Params.description }}</p>
+            {{ end }} 
+        </div>
+        <div
+            class="grid gap-y-10 lg:grid-cols-3 lg:gap-x-6 [&>*:nth-child(1)]:!delay-0 [&>*:nth-child(2)]:!delay-100 [&>*:nth-child(3)]:!delay-200">
+            {{ $blogs := where site.RegularPages "Section" "blog" }}
+            {{ $blogsWithDate := where $blogs "Date" "ne" nil }}
+            {{ $recentBlogs := first 3 (sort $blogsWithDate "Date" "desc") }}
+
+            {{ range $recentBlogs }}
+            <div
+                class="jos group overflow-hidden rounded-[10px] border border-[#E1E1E] bg-white hover:border-white hover:shadow-[0_4px_60px_rgba(10,16,47,0.08)]">
+                <a href="{{ .RelPermalink }}" class="block overflow-hidden">
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}" width="856" height="320"
+                        class="scale-100  object-cover transition-all duration-300 group-hover:scale-105" />
+                </a>
+                <div class="p-[30px]">
+                    <ul class="flex flex-wrap items-center gap-4 text-base font-semibold sm:gap-6">
+                        <li>
+                            <a href="{{ .RelPermalink }}" class="flex items-center gap-x-[10px] hover:text-ColorBlue">
+                                {{ $authorSlug := .Params.author }}
+                                {{ with site.GetPage (printf "authors/%s" .Params.author) }}
+
+                                <img src="{{ .Params.photo }}" alt="{{ .Title }}" width="45" h-45
+                                    class="w-[45px] h-[45px] rounded-full object-cover" />
+                                <span>Oleh {{ .Title }}</span>
+                                {{ end }}
+                            </a>
+                        </li>
+                        <li>
+                            <span class="flex items-center gap-x-[10px]">
+                                <i class="fa-regular fa-calendar"></i> {{ .Date.Format "Jan 2, 2006" }}
+                            </span>
+                        </li>
+                    </ul>
+                    <h2
+                        class="mb-5 mt-8 line-clamp-2 font-body text-2xl font-bold leading-[1.4] -tracking-[1px] lg:text-3xl">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h2>
+                    <p class="mb-7 line-clamp-2 last:mb-0">{{ .Summary }}</p>
+                    <a href="{{ .RelPermalink }}"
+                        class="inline-flex items-center gap-x-2 text-base font-bold text-ColorBlack group-hover:text-ColorBlue">
+                        Baca selengkapnya
+                        <span class="transition-all duration-300 ease-in-out group-hover:translate-x-2">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+
+    </div>
+</section>

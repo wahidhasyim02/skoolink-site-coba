@@ -1,0 +1,54 @@
+<section class="section-testimonial" id="section-testimonial">
+  <div class="rounded-[30px] bg-ColorCaribbeanGreen lg:rounded-[50px]">
+    <div class="section-space">
+      <div class="container-default">
+        <!-- Judul & Deskripsi -->
+        {{ with site.GetPage "testimonials" }}
+        <div class="jos mb-[60px] xl:mb-20">
+          <div class="max-w-[746px]">
+            <div class="mb-5">
+              <h2 class="font-Kanit text-4xl font-medium leading-none -tracking-[1px] text-ColorMidnightMoss lg:text-5xl xl:text-7xl xxl:text-[80px]">
+                {{ .Title }}
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider -->
+        <div class="jos swiper testimonial-one">
+          <div class="swiper-wrapper">
+            {{ range .Params.testimonials }}
+            <div class="swiper-slide">
+              <div class="flex flex-col items-center gap-12 md:flex-row md:gap-16 lg:gap-[90px] xl:gap-[134px]">
+                <div class="h-64 w-64 overflow-hidden rounded-[10px] lg:h-[431px] lg:w-[416px]">
+                  <img src="/img/testimonial-img.png" alt="testimonial-img" width="416" height="431" class="h-full w-full object-cover" />
+                </div>
+                <div class="flex-1 text-ColorMidnightMoss">
+                  <blockquote class="mb-10 text-xl font-semibold -tracking-[1px] lg:text-2xl xl:text-3xl">
+                    {{ .quote }}
+                  </blockquote>
+                  <div class="">
+                    <span class="block text-xl font-semibold">{{ .name }}</span>
+                    <span class="block">{{ .role }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+
+          <!-- Navigasi -->
+          <div class="relative z-10 mt-[50px] flex flex-row-reverse justify-center gap-6 lg:-mt-[50px] lg:justify-start">
+            <div class="slider-nav-btn-next flex h-[50px] w-[50px] items-center justify-center rounded-[50%] border border-ColorMidnightMoss bg-transparent text-ColorMidnightMoss transition-all duration-300 hover:bg-ColorMidnightMoss hover:text-ColorCaribbeanGreen">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="slider-nav-btn-prev flex h-[50px] w-[50px] items-center justify-center rounded-[50%] border border-ColorMidnightMoss bg-transparent text-ColorMidnightMoss transition-all duration-300 hover:bg-ColorMidnightMoss hover:text-ColorCaribbeanGreen">
+              <i class="fa-solid fa-chevron-left"></i>
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

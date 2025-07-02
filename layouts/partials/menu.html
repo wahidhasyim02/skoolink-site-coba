@@ -1,0 +1,61 @@
+{{- /*
+Renders a menu for the given menu ID.
+
+@context {page} page The current page.
+@context {string} menuID The menu ID.
+
+@example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+*/}}
+
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{- with index site.Menus $menuID }}
+<nav  class="w-full h-full px-0 lg:px-2 py-2 lg:py-4 mx-4 lg:mx-0 rounded-xl">
+  <ul id="navList"  class="flex flex-row lg:flex-col gap-1 lg:gap-4 h-full justify-between lg:justify-center items-center lg:items-center [&>*:nth-child(2)]:hidden [&>*:nth-child(5)]:lg:flex [&>*:nth-child(6)]:lg:flex [&>*:nth-child(7)]:lg:flex [&>*:nth-child(8)]:hidden">
+    {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+  </ul>
+</nav>
+{{- end }}
+
+{{- define "partials/inline/menu/walk.html" }}
+{{- $page := .page }}
+{{- range .menuEntries }}
+{{- $attrs := dict "href" .URL }}
+{{- if $page.IsMenuCurrent .Menu . }}
+{{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+{{- else if $page.HasMenuCurrent .Menu .}}
+{{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+{{- end }}
+{{- $isActive := in ($attrs.class | default "") "active" }}
+{{- $isAncestor := in ($attrs.class | default "") "ancestor" }}
+
+{{- $name := .Name }}
+{{- with .Identifier }}
+{{- with T . }}
+{{- $name = . }}
+{{- end }}
+{{- end }}
+<li class="group relative min-w-12 w-full lg:w-full h-full  lg:h-fit flex justify-center items-center">
+
+  <a class="px-2 py-1 lg:px-3 sm:py-4 h-full lg:h-fit flex flex-col lg:flex-row gap-0 lg:gap-4 w-full justify-center lg:justify-start items-center hover:shadow hover:bg-gray-300 hover:dark:bg-gray-950/50 {{ if or $isActive $isAncestor }}bg-skoolink-400 dark:bg-skoolink-500 group-hover:bg-skoolink-500 group-hover:dark:bg-skoolink-400 text-white dark:text-white group-hover:text-white group-hover:dark:text-white{{ else }}bg-white/0 dark:bg-gray-950/0 text-gray-700 dark:text-gray-400  group-hover:text-skoolink-400  dark:group-hover:text-skoolink-500{{ end }} backdrop-blur-sm   transition duration-500 ease-in-out rounded-xl" {{- with .Identifier }} id="{{ . }}" {{- end }}
+    
+    {{- range $k, $v :=$attrs }} {{- with $v }} {{- printf " %s=%q" $k $v | safeHTMLAttr }} {{- end }} {{- end -}}>
+    <span class="blockh-fit py-1 group-hover:scale-110 transition duration-500 ease-in-out">
+    {{ with .Params.svg }}
+    {{ . | safeHTML }}
+    {{ end }}
+    </span>
+ <span
+    class="flex h-fit w-fit lg:w-auto text-[.6rem] lg:text-base justify-center items-start lg:items-center transition duration-1000 ease-in-out ">{{
+    $name }}</span>
+  </a>
+ 
+  {{- with .Children }}
+  <ul>
+    {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+  </ul>
+  {{- end }}
+</li>
+{{- end }}
+{{- end }}

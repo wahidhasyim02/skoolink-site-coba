@@ -1,0 +1,70 @@
+{{ $section := site.GetPage "sections/faq.md" }}
+{{ if $section }}
+<!--...::: FAQ Section Start :::... -->
+<section class="section-faq">
+    <!-- Section Space -->
+    <div class="section-space-bottom">
+        <!-- Section Container -->
+        <div class="container-default">
+            <!-- FAQ Area -->
+            <div
+                class="grid items-center gap-y-10 lg:grid-cols-[1fr_minmax(0,_0.8fr)] lg:gap-x-20 xl:gap-x-24 xxl:gap-x-32">
+
+                <!-- Content Block -->
+                <div class="jos" data-jos_animation="fade-right">
+                    <!-- Section Wrapper -->
+                    <div>
+                        <!-- Section Block -->
+                        <div class="mb-5">
+                            <h2
+                                class="font-Kanit text-4xl font-medium leading-none -tracking-[1px] lg:text-5xl xl:text-7xl xxl:text-[80px]">
+                                {{ $section.Params.intro_title }}
+                            </h2>
+                        </div>
+                    </div>
+                    <!-- Paragraphs -->
+                    {{ range $section.Params.intro_paragraphs }}
+                    <p class=" "> {{ . }} </p>
+                    {{ end }}
+                </div>
+                <!-- Content Block -->
+
+                <!-- FAQ Block -->
+                <div class="jos relative z-10 flex justify-center" data-jos_animation="fade-left">
+                    <!-- Accordion List -->
+                    <ul class="grid gap-6 rounded-[10px]">
+                        {{ range $index, $faq := $section.Params.faq }}
+                        <!-- Accordion Item -->
+                        <li
+                            class="accordion-item {{ if eq $index 0 }}active{{ end }} overflow-hidden rounded-[10px] border border-ColorMidnightMoss p-5">
+                            <!-- Accordion Header -->
+                            <div
+                                class="accordion-header relative pr-8 font-Kanit text-[28px] font-medium leading-[1.28] -tracking-[0.5px] text-ColorMidnightMoss">
+                                <button class="flex flex-1 gap-x-6 text-left">
+                                    <span class="inline-block h-10 w-auto">
+                                        <img src="/img/icons/{{ $faq.icon }}" alt="{{ $faq.title | plainify }}"
+                                            width="41" height="40" />
+                                    </span>
+                                    <span class="flex-1"> {{ $faq.title }} </span>
+                                </button>
+                                <span class="accordion-icon-4 absolute right-0 top-0 text-xl">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <!-- Accordion Body -->
+                            <div
+                                class="accordion-body ml-16 text-xl leading-[1.6] -tracking-[0.5px] text-ColorMidnightMoss">
+                                <p class="pt-5">{{ $faq.description }}</p>
+                            </div>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+                <!-- FAQ Block -->
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--...::: FAQ Section End :::... -->
+{{ end }}
