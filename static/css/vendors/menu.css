@@ -53,7 +53,7 @@
 .site-header {
   background-color: transparent;
 }
-
+  
 .site-header--absolute {
   position: absolute;
   top: 0;
@@ -63,7 +63,7 @@
 }
 
 .site-header--sticky:not(.mobile-sticky-enable) {
-  position: absolute !important;
+  position: sticky !important;
   top: 0;
   right: 0;
   width: 100%;
