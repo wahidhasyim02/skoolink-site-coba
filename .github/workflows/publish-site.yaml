@@ -56,10 +56,10 @@ jobs:
           ARGS: "-rlgoDzvc -i"
           SOURCE: "./public"
           # SOURCE: "github-pages/artifact.tar"
-          TARGET: ${{ vars.REMOTE_PATH }}
+          TARGET: ${{ secrets.REMOTE_PATH }}
           SCRIPT_BEFORE: |
-            mkdir -p ${{ vars.REMOTE_PATH }}
+            mkdir -p ${{ secrets.REMOTE_PATH }}
           SCRIPT_AFTER: |
-            cd ${{ vars.REMOTE_PATH }}
+            cd ${{ secrets.REMOTE_PATH }}
             tar xf artifact.tar
-            ls -al ${{ vars.REMOTE_PATH }}
+            ls -al ${{ secrets.REMOTE_PATH }}
