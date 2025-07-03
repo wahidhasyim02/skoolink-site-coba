@@ -11,7 +11,7 @@ params:
   address: |-
     <p>Jl. Cililitan Besar No.3 </p>
     <p>Jakarta Timur 13570</p><p>Indonesia</p>
-  RandD: '<p>Ruko Blok A No. 5 Perum Graha Indah,</p><p>Lamongan 62281</p><p>Jawa Timur.</p> '
+  RandD: '<p>Ruko Blok A No. 5 Perum Graha Indah</p><p>Lamongan 62281</p><p>Jawa Timur.</p> '
   social:
     - name: twitter
       url: https://twitter.com
