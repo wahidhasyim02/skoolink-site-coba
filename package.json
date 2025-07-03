@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/main.css --watch\" \"hugo server\""
+    "dev": "concurrently \"npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/main.css --watch\" \"hugo server\"",
+    "prebuild": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/main.css",
+    "build": "hugo --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +19,7 @@
     "tailwindcss": "3.4.17"
   },
   "dependencies": {
+    "concurrently": "^9.2.0",
     "gsap": "^3.13.0",
     "tailwind-scrollbar": "^3.1.0",
     "three": "^0.177.0"
