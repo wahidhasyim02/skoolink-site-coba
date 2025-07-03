@@ -4,7 +4,7 @@ slug = "about-us"
 url = "about-us"
 date = 2025-06-26T08:00:00
 summary = "Skoolink adalah platform digitalisasi sekolah dengan fitur lengkap untuk mendukung proses pendidikan secara modern."
-image = "/img/about-us/cover.jpg"
+image = "/img/about-us/cover.webp"
 draft = false
 type = "about"
 layout = "redirect"
@@ -12,17 +12,17 @@ layout = "redirect"
 [hero]
 title = "Transformasi Digital untuk Sekolah Masa Kini"
 description = "Skoolink hadir untuk menyederhanakan dan meningkatkan efektivitas manajemen sekolah, dari penerimaan siswa hingga kehadiran harian."
-image = "/img/about-us/hero.jpg"
+image = "/img/about-us/hero.webp"
 video = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
 [[gallery]]
-image = "/img/about-us/gallery-1.jpg"
+image = "/img/about-us/gallery-1.webp"
 
 [[gallery]]
-image = "/img/about-us/gallery-2.jpg"
+image = "/img/about-us/gallery-2.webp"
 
 [[gallery]]
-image = "/img/about-us/gallery-3.jpg"
+image = "/img/about-us/gallery-3.webp"
 
 [[values]]
 icon = "/img/icons/icon-violet-feature-1.svg"
@@ -62,7 +62,7 @@ unit = "%"
 [[team]]
 name = "John Doe"
 position = "Founder & Developer"
-image = "/img/about-us/team-john.jpg"
+image = "/img/about-us/team-john.webp"
 social = [
   { name = "twitter", url = "https://twitter.com/" },
   { name = "github", url = "https://github.com/" }
@@ -71,7 +71,7 @@ social = [
 [[team]]
 name = "Jane Doe"
 position = "UI/UX Designer"
-image = "/img/about-us/team-jane.jpg"
+image = "/img/about-us/team-jane.webp"
 social = [
   { name = "instagram", url = "https://instagram.com/" }
 ]

@@ -1,21 +1,21 @@
 +++
 title = "Permudah Operasional Sekolah dengan Satu Aplikasi"
 summary = "Skoolink membantu sekolah mengelola absensi, SPMB, keuangan, akademik, dan komunikasi dalam satu platform terpadu."
-main_image = "/img/mockup-skoolink.png"
+main_image = "/img/mockup-skoolink.webp"
 note = ""
 type = "section"
 layout = "none" 
 
 [[avatars]]
-src = "/img/hero-avater-1.jpg"
+src = "/img/hero-avater-1.webp"
 alt = "hero-avatar-img-1"
 
 [[avatars]]
-src = "/img/hero-avater-2.jpg"
+src = "/img/hero-avater-2.webp"
 alt = "hero-avatar-img-2"
 
 [[avatars]]
-src = "/img/hero-avater-3.jpg"
+src = "/img/hero-avater-3.webp"
 alt = "hero-avatar-img-3"
 
 [[cta]]

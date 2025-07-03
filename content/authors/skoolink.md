@@ -1,5 +1,5 @@
 +++
 title = "Skoolink"
-photo = "/img/authors/skoolink.png"
+photo = "/img/authors/skoolink.webp"
 slug = "skoolink"
 +++
