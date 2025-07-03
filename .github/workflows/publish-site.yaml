@@ -36,20 +36,17 @@ jobs:
           rm go${{ env.GO_VERSION }}.linux-amd64.tar.gz
           go version
 
-      - name: Setup Project
-        run: npm run project-setup
-
       - name: Install npm dependencies
         run: npm install
 
       - name: Publish to GitHub Pages
         run: npm run build
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
-
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: ./public
+      #
       - name: Deploy to Staging server
         uses: easingthemes/ssh-deploy@main
         with:
@@ -57,7 +54,8 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           ARGS: "-rlgoDzvc -i"
-          SOURCE: "github-pages/artifact.tar"
+          SOURCE: "./public"
+          # SOURCE: "github-pages/artifact.tar"
           TARGET: ${{ vars.REMOTE_PATH }}
           SCRIPT_BEFORE: |
             mkdir -p ${{ vars.REMOTE_PATH }}
