@@ -54,7 +54,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           ARGS: "-rlgoDzvc -i"
-          SOURCE: "./public"
+          SOURCE: "./public/"
           # SOURCE: "github-pages/artifact.tar"
           TARGET: ${{ secrets.REMOTE_PATH }}
           SCRIPT_BEFORE: |
