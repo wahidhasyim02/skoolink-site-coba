@@ -5,24 +5,24 @@ layout = "redirect"
 type = "section"
 
 [[features]]
-icon = "/img/icons/address.png"
+icon = "/img/icons/address.webp"
 title = "Kantor Pusat"
 summary = ""
 delay = "0"
 
 [[features]]
-icon = "/img/icons/rnd.png"
+icon = "/img/icons/rnd.webp"
 title = "Kantor Tim Pengembang"
 summary = ""
 
 [[features]]
-icon = "/img/icons/whatsapp.png"
+icon = "/img/icons/whatsapp.webp"
 title = "WhatsApp"
 summary = ""
 delay = "0.6"
 
 [[features]]
-icon = "/img/icons/email.png"
+icon = "/img/icons/email.webp"
 title = "Email"
 summary = ""
 +++
