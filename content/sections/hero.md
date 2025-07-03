@@ -1,5 +1,5 @@
 +++
-title = "Permudah Operasional Sekolah dengan Satu Aplikasi"
+title = "Permudahlah Operasional Sekolah dengan Satu Aplikasi"
 summary = "Skoolink membantu sekolah mengelola absensi, SPMB, keuangan, akademik, dan komunikasi dalam satu platform terpadu."
 main_image = "/img/mockup-skoolink.png"
 note = ""
