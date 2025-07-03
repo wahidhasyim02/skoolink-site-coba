@@ -1,9 +1,10 @@
-<header class="site-header sticky site-header--absolute is-white py-3" id="sticky-menu">
+<header class="site-header site-header--sticky is-white py-3" id="sticky-menu">
   <div class="container-default group">
     <div class="flex items-center justify-between gap-x-8">
       <!-- Header Logo -->
-      <a href="/" class="">
-           <img src="{{ site.Params.logo }}" width="109" height="24" alt="{{ site.Title }}" />   
+      <a href="/" class="relative flex items-center justify-center">
+           <img src="{{ site.Params.logo }}" class="group-hover:opacity-0 group-hover:-z-20 transition duration-500 easy-in-out" width="109" height="24" alt="{{ site.Title }}" />
+           <img src="{{ site.Params.logowhite }}" class="absolute insert-0 opacity-0 group-hover:opacity-100 -z-10 group-hover:z-20 transition duration-500 easy-in-out" width="109" height="24" alt="{{ site.Title }}" />   
       </a>
       <!-- Header Logo -->
 
