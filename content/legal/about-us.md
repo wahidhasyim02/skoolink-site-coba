@@ -48,7 +48,7 @@ Menjadi solusi digital utama bagi institusi pendidikan di Indonesia dalam mewuju
 - **Pembayaran & Tabungan Digital** – Praktis, otomatis, dan edukatif  
 - **Akademik & E-learning** – Jadwal, kalender, dan ruang belajar online  
 - **Presensi Real-time** – Untuk siswa & guru  
-- **Next Gen Features** – Buku tamu, e-perpus, jurnal guru, e-rapor, dan anti bullying
+- **Next Gen Features** – Buku tamu, e-Perpus, jurnal guru, e-rapor, dan anti bullying
 
 ---
 

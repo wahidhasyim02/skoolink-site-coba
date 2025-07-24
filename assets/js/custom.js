@@ -1,6 +1,6 @@
 
     document.addEventListener("DOMContentLoaded", () => {
-        const fallback = "/img/default.png"; // Ganti ke default.png jika kamu pakai .png
+        const fallback = "/img/default.webp"; // Ganti ke default.webp jika kamu pakai .webp
 
         document.querySelectorAll("img").forEach(img => {
             const rawSrc = img.getAttribute("src") || "";
