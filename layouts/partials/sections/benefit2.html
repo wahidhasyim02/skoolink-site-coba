@@ -1,0 +1,55 @@
+{{ $section := site.GetPage "sections/benefit2.md" }}
+{{ if $section }}
+<!--...::: Content Section Start :::... -->
+<section class="section-content benefit">
+  <div class="section-space">
+    <div class="container-default">
+      <div class="flex flex-col gap-y-20 lg:gap-y-[100px] xl:gap-y-[120px]">
+
+        <div
+          class="grid items-center gap-10 lg:grid-cols-2 lg:gap-24 xl:grid-cols-[minmax(0,_1fr)_0.8fr] xl:gap-[135px]">
+
+          <!-- right Block -->
+          <div class="jos order-1" data-jos_animation="fade-left">
+            <div>
+              <div class="mb-5">
+                <h3
+                  class="font-Kanit text-2xl font-medium leading-none -tracking-[1px] lg:text-3xl xl:text-5xl xxl:text-[80px]">
+                  {{ $section.Title }}
+                </h3>
+              </div>
+            </div>
+            <p>{{ $section.Params.summary }}</p>
+            <p>{{ $section.Params.sub_summary }}</p>
+            <div class="mt-8 lg:mt-[50px]">
+              {{ $btnURL := $section.Params.button_url }}
+              {{ if eq $btnURL "" }}
+              {{ $btnURL = printf "https://wa.me/%s" site.Params.whatsapp }}
+              {{ end }}
+              <a href="{{ $btnURL}}"
+                class="btn is-caribbean-green is-transparent btn-animation is-large is-rounded group inline-block">
+                <span>
+                  {{ $section.Params.button_label }}
+                  <i class="fa-regular fa-arrow-right ml-[10px] text-2xl leading-none"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <!-- left Block -->
+          <div class="jos order-2" data-jos_animation="fade-right">
+            <div class="relative">
+              <img src="{{ $section.Params.image_main }}" alt="content-img-3" width="486" height="486"
+                class="h-full w-full" />
+             
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!--...::: Content Section End :::... -->
+{{ end }}

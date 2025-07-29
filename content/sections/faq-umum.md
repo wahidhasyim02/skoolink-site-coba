@@ -26,4 +26,12 @@ description = "Tentu. Skoolink memiliki fitur SPMB online yang memudahkan calon 
 [[params.faq]]
 title = "Bagaimana jika sekolah butuh bantuan teknis saat menggunakan Skoolink?"
 description = "Kami menyediakan layanan dukungan teknis yang responsif melalui WhatsApp, email, dan chat langsung. Tim support kami siap membantu Anda mulai dari onboarding, pelatihan, hingga pendampingan harian."
+
+[[params.faq]]
+title = "Apakah siswa dan orang tua juga bisa menggunakan Skoolink?"
+description = "Ya! Siswa dan orang tua bisa mengakses aplikasi Skoolink untuk melihat absensi, jadwal pelajaran, nilai, pembayaran, hingga pengumuman penting dari sekolah."
+[[params.faq]]
+title = "Apa saja fitur yang tersedia di Skoolink?"
+description = "Skoolink memiliki berbagai fitur unggulan seperti Presensi Digital, SPMB Online, Akademik Online (jadwal, ruang belajar, CBT), Pembayaran Online, e-Perpus, Lapor Perundungan, dan Buku Tamu digital."
+
 +++

@@ -21,7 +21,7 @@ params:
       url: https://www.facebook.com/
       icon: fa-facebook-f
     - name: instagram
-      url: https://www.instagram.com/
+      url: https://www.instagram.com/skoolink.id
       icon: fa-instagram
     - name: github
       url: https://www.github.com/

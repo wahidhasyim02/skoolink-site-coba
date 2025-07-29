@@ -62,7 +62,6 @@
   z-index: 999;
 }
 
-
 .site-header--sticky:not(.mobile-sticky-enable) {
   position: sticky !important;
   top: 0;
