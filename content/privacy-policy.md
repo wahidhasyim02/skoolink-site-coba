@@ -94,4 +94,5 @@ Jika Anda memiliki pertanyaan, komentar, atau keluhan terkait kebijakan privasi,
 {{< contact-info >}}
 
 
+
 Terima kasih telah menggunakan Skoolink. Kami berkomitmen untuk menjaga data dan privasi Anda dengan aman.

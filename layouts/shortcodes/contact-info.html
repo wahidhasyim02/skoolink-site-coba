@@ -1,7 +1,48 @@
 {{ $fitur := site.GetPage "sections/contact.md" }}
+
+{{ $current := .Page.RelPermalink }}
+{{ if not (or
+(hasPrefix $current "/contact")
+(hasPrefix $current "/privacy-policy")
+(hasPrefix $current "/legal/privacy-policy")
+(hasPrefix $current "/terms-of-service")
+(hasPrefix $current "/about-us")
+(hasPrefix $current "/disclaimer")
+) }}
 <ul class="space-y-4 p-4">
   {{ range $fitur.Params.features }}
     <li class="flex items-start text-skoolink-400 dark:text-skoolink-500">
+
+      <!-- Icon dari .icon -->
+      <img src="{{ .icon }}" alt="{{ .title }}" width="28" height="28"   loading="lazy" />
+
+      <!-- Konten -->
+      <div class="flex flex-col ml-3 space-y-1 [&>p]:mb-0">
+        {{ if eq .title "Email" }}
+          <a href="mailto:{{ site.Params.email }}" class="hover:underline">{{ site.Params.email }}</a>
+
+        {{ else if eq .title "WhatsApp" }}
+          <a href="https://wa.me/{{ site.Params.whatsapp }}" target="_blank" rel="noopener" class="hover:underline">
+            {{ site.Params.phone }}
+          </a>
+
+        {{ else if eq .title "Kantor Pusat" }}
+          {{ site.Params.address | safeHTML }}
+{{ else if eq .title "Kantor Tim Pengembang" }}
+          {{ site.Params.RandD | safeHTML }}
+
+        {{ else }}
+          <p class="italic text-sm text-gray-400">Konten belum diisi</p>
+        {{ end }}
+      </div>
+    </li>
+  {{ end }}
+</ul>
+{{ end }}
+
+<ul class="space-y-4 p-4">
+  {{ range $fitur.Params.features }}
+    <li class="flex items-start">
 
       <!-- Icon dari .icon -->
       <img src="{{ .icon }}" alt="{{ .title }}" width="28" height="28"   loading="lazy" />

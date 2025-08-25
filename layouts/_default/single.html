@@ -47,6 +47,7 @@
                 {{ if not (or
                 (hasPrefix $current "/contact")
                 (hasPrefix $current "/privacy-policy")
+                (hasPrefix $current "/legal/privacy-policy")
                 (hasPrefix $current "/terms-of-service")
                 (hasPrefix $current "/about-us")
                 (hasPrefix $current "/disclaimer")
@@ -64,6 +65,7 @@
                 {{ if not (or
                 (hasPrefix $current "/contact")
                 (hasPrefix $current "/privacy-policy")
+                (hasPrefix $current "/legal/privacy-policy")
                 (hasPrefix $current "/terms-of-service")
                 (hasPrefix $current "/about-us")
                 (hasPrefix $current "/disclaimer")
@@ -99,10 +101,20 @@
                 <!-- Blog Post Meta -->
                 <!-- Blog Details Content Block-->
                 <div>
+                   {{ $current := .RelPermalink }}
+                {{ if not (or
+                (hasPrefix $current "/contact")
+                (hasPrefix $current "/privacy-policy")
+                (hasPrefix $current "/legal/privacy-policy")
+                (hasPrefix $current "/terms-of-service")
+                (hasPrefix $current "/about-us")
+                (hasPrefix $current "/disclaimer")
+                ) }}
                   <h2
                     class="mb-5 mt-8 line-clamp-2 font-body text-2xl font-bold leading-[1.4] -tracking-[1px] group-hover:text-ColorBlue lg:text-3xl">
                     {{ .Title }}
                   </h2>
+                  {{ end }}
                   <div class="mb-7 prose prose-neutral [&>ul]:my-4 [&>ul]:list-disc [&>ul]:list-inside last:mb-0">
                     {{ .Content }}
                   </div>
@@ -113,11 +125,12 @@
               <!-- Blog Details Wrapper -->
             </article>
             <!-- Blog Post Article -->
-            {{ if .Site.IsServer }}
+            {{ if hugo.IsServer }}
             {{ $current := .RelPermalink }}
             {{ if not (or
             (hasPrefix $current "/contact")
             (hasPrefix $current "/privacy-policy")
+            (hasPrefix $current "/legal/privacy-policy")
             (hasPrefix $current "/terms-of-service")
             (hasPrefix $current "/about-us")
             (hasPrefix $current "/disclaimer")
@@ -334,10 +347,19 @@
           </div>
         </div>
 
-        <!-- Sidebar -->
+        {{ $current := .RelPermalink }}
+                {{ if not (or
+                (hasPrefix $current "/contact")
+                (hasPrefix $current "/privacy-policy")
+                (hasPrefix $current "/legal/privacy-policy")
+                (hasPrefix $current "/terms-of-service")
+                (hasPrefix $current "/about-us")
+                (hasPrefix $current "/disclaimer")
+                ) }}<!-- Sidebar -->
         <aside class="jos flex flex-col gap-y-[30px]">
           {{ partial "blog/sidebar.html" . }}
         </aside>
+        {{ end }}
       </div>
     </div>
   </div>

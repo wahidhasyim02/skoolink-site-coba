@@ -16,9 +16,9 @@
                                 class="mb-6 text-4xl font-extrabold leading-[1.11] -tracking-[1px] md:text-5xl lg:text-6xl xl:text-7xl xxl:text-[90px]">
                                 {{ $hero.Title }}</h1>
                             <p class="mb-10 xl:mb-[50px]">{{ $hero.Params.summary }}</p>
-                            {{ if .Site.IsServer }}
+                            {{ if hugo.IsServer }}
                             <!-- Avatars & Stats -->
-                            <div class="mb-8 flex flex-wrap items-center gap-[10px] lg:mb-[50px]">
+                            <div class="mb-8 hidden flex-wrap items-center gap-[10px] lg:mb-[50px]">
                                 <!-- Hero Avatar Block-->
                                 <div class="flex">
                                     {{ range $hero.Params.avatars }}
@@ -79,7 +79,7 @@
                             <img src="/img/elements/maskot.webp" alt="maskot-skoolink"
                                 class="absolute md:hidden -left-[20%] sm:-left-[10%] lg:-bottom-[15%] -bottom-[10%] lg:-left-[50%] xl:-left-[40%] lg:bottom-[0%] h-60 -rotate-[0deg] w-auto z-20" />
                                  <img src="/img/elements/maskot-lg.webp" alt="maskot-skoolink"
-                                class="absolute hidden md:inline-block -left-[20%] sm:-left-[10%] lg:-bottom-[15%] -bottom-[10%] lg:-left-[50%] xl:-left-[40%] lg:bottom-[0%] h-60 -rotate-[0deg] w-auto z-20" />
+                                class="absolute hidden md:inline-block -left-[20%] sm:-left-[10%] lg:-bottom-[15%] -bottom-[10%] lg:-left-[45%] xl:-left-[45%] lg:bottom-[-5%] h-60 -rotate-[0deg] w-auto z-20" />
                             <img src="/img/elements/hero-3-shapes-1.svg" alt="shape-2"
                                 class="absolute -right-[10%] bottom-[18%] -z-10" />
                         </div>

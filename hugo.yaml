@@ -36,19 +36,16 @@ menu:
       weight: 2
     - name: Fitur
       url: /#section-feature
-      weight: 3
-    - name: Harga
-      url: /#section-pricing
-      weight: 4
+      weight: 3 
     - name: Testimonial
       url: /#section-testimonial
-      weight: 5
+      weight: 4
     - name: Blog
       url: /#section-blog
-      weight: 6
+      weight: 5
     - name: Kontak
       url: /#section-contact
-      weight: 7
+      weight: 6
   primary:
     - name: Home
       url: /
@@ -58,13 +55,13 @@ menu:
       weight: 2
     - name: Fitur
       url: /#section-feature
-      weight: 3
-    - name: Harga
-      url: /#section-pricing
-      weight: 4
+      weight: 3 
     - name: Kontak
       url: /#section-contact
-      weight: 5
+      weight: 4
+    - name: Privacy Policy
+      url: /legal/privacy-policy
+      weight: 5  
   utility:
     - name: Signup
       url: /signup

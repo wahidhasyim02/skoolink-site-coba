@@ -1,6 +1,6 @@
 <!-- Single Sidebar -->
 <div class="rounded-[10px] bg-ColorOffWhite p-5">
-  {{ if .Site.IsServer }}
+  {{ if hugo.IsServer }}
   <!-- Sidebar Search -->
   <form action="#" method="post" class="relative h-[60px]">
     <input type="search" name="sidebar-search" id="sidebar-search" placeholder="Type to search..."
@@ -94,7 +94,7 @@
 </div>
 <!-- Single Sidebar -->
 <!-- Single Sidebar -->
-{{ if .Site.IsServer }}
+{{ if hugo.IsServer }}
 <div class="rounded-[10px] bg-ColorOffWhite p-8">
   <div
     class="relative mb-[30px] inline-block pb-[10px] text-lg font-semibold text-ColorBlack after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-black">
