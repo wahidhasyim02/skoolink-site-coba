@@ -5,6 +5,7 @@ date = 2025-08-20T09:00:00+07:00
 draft = false
 type = "page"   
 +++
+
 # Kebijakan Privasi Skoolink
 
 Skoolink menghargai privasi pengguna dan berkomitmen untuk melindungi informasi pribadi yang dikumpulkan melalui aplikasi dan situs web kami. Kebijakan ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi data Anda.

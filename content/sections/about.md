@@ -1,7 +1,8 @@
 +++
 title = "Solusi Digital untuk Manajemen Sekolah Modern"
-summary = "Skoolink dirancang untuk kepala sekolah, yayasan, dan staf admin yang ingin meningkatkan efisiensi dan transparansi. Dengan satu aplikasi, semua proses operasional sekolah menjadi lebih mudah, cepat, dan akurat. Selain itu, Skoolink juga membantu siswa dan orang tua memantau absensi, jadwal, nilai, tugas, pembayaran, akses e-Perpus, pelaporan perundungan, dan pengumuman sekolah secara real-time."
-sub_summary = "Skoolink menyederhanakan manajemen sekolah dengan sistem digital yang terintegrasi—mempermudah setiap proses mulai dari presensi, SPMB, akademik (jadwal, ruang belajar, CBT), pembayaran, akses e-Perpus, pelaporan perundungan, hingga pencatatan buku tamu."
+summary = "Skoolink dirancang untuk seluruh ekosistem sekolah—mulai dari kepala sekolah, yayasan, staf admin, guru, siswa, hingga orang tua—yang ingin meningkatkan efisiensi pembelajaran, kerapian manajemen sekolah, dan kemudahan monitoring. Dengan satu aplikasi, semua informasi sekolah dapat diakses dengan lebih mudah, cepat, dan akurat." 
+summary2 = "Guru dapat mengelola data akademik dan presensi, siswa dapat mengakses jadwal dan materi, orang tua dapat memantau perkembangan anak secara real-time, sementara kepala sekolah dan yayasan dapat saling bertukar laporan keuangan secara transparan."
+sub_summary = "Dengan Skoolink, semua urusan sekolah jadi lebih mudah. Presensi, pendaftaran siswa baru, manajemen akademik, ujian berbasis CBT, pembayaran online dengan transparansi penuh, akses e-Perpus, hingga pelaporan perundungan—semua terhubung dalam satu sistem. Tidak lagi repot dengan proses manual; cukup satu platform yang praktis, aman, dan modern untuk menggerakkan sekolah lebih cepat dan cerdas."
 image_main = "/img/content-img-1.webp"
 image_overlay = "/img/content-img-1-card.webp"
 button_label = "Jadwalkan Demo"
