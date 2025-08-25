@@ -46,6 +46,18 @@ Skoolink tidak menjual informasi pribadi pengguna kepada pihak ketiga. Informasi
 
 
 
+## Akses Perangkat
+
+Aplikasi Skoolink dapat meminta izin akses ke fitur perangkat, termasuk namun tidak terbatas pada:
+
+- **Kamera:** Digunakan untuk mengambil atau mengunggah foto (misalnya foto profil, dokumen, atau bukti pembayaran) serta pemindaian kode QR.
+- **Lokasi:** Digunakan untuk keperluan presensi, keamanan, atau layanan berbasis lokasi.
+- **Mikrofon & Media:** Jika diperlukan untuk fitur tertentu (misalnya unggah tugas atau komunikasi), akan selalu diminta dengan persetujuan pengguna.
+
+Akses hanya digunakan sesuai kebutuhan layanan dan tidak akan digunakan tanpa izin Anda.
+
+
+
 ## Keamanan Data
 
 Kami menerapkan langkah-langkah keamanan yang sesuai untuk melindungi informasi pribadi dari akses tidak sah, perubahan, pengungkapan, atau perusakan. Termasuk:
@@ -53,6 +65,24 @@ Kami menerapkan langkah-langkah keamanan yang sesuai untuk melindungi informasi 
 - Penggunaan enkripsi untuk data sensitif.
 - Akses terbatas hanya kepada staf yang berwenang.
 - Pemeliharaan sistem keamanan secara rutin.
+
+
+
+## Retensi Data
+
+Kami menyimpan data pribadi pengguna hanya selama diperlukan untuk tujuan yang dijelaskan dalam kebijakan ini, kecuali jika periode penyimpanan yang lebih lama diwajibkan oleh hukum. Setelah tidak lagi diperlukan, data akan dihapus atau dianonimkan secara aman.
+
+
+
+## Privasi Anak
+
+Skoolink dapat digunakan oleh pelajar di bawah usia 18 tahun dengan izin dan pengawasan dari orang tua, wali, atau institusi pendidikan. Kami tidak secara sengaja mengumpulkan data pribadi dari anak di bawah umur tanpa persetujuan tersebut.
+
+
+
+## Transfer Data
+
+Data pribadi pengguna dapat diproses atau disimpan di server yang berada di luar negara tempat pengguna tinggal. Kami memastikan perlindungan data tetap sesuai dengan hukum yang berlaku.
 
 
 
