@@ -52,7 +52,7 @@
                 (hasPrefix $current "/about-us")
                 (hasPrefix $current "/disclaimer")
                 ) }}
-                <a href="{{ .RelPermalink }}" class="block overflow-hidden w-full lg:w-[856px] h-auto lg:h-[450px]">
+                <a href="{{ .RelPermalink }}" class="block overflow-hidden w-full lg:w-[856px] h-auto lg:h-auto xl:h-[450px]">
                   <img src="{{ .Params.image }}" alt="{{ .Title }}" width="856" height="450"
                     class="h-auto w-full scale-100 object-cover transition-all duration-300 group-hover:scale-105" />
                 </a>{{ end }}
