@@ -48,9 +48,9 @@ delay = "1.5"
 
 [[features]]
 icon = "/img/icons/feature-007.svg"
-title = "Lapor Perundungan"
-summary = "Fitur pelaporan untuk mencegah dan menangani kasus perundungan di sekolah secara lebih aman dan terstruktur."
-description = "Lapor Perundungan memungkinkan siswa atau pihak sekolah melaporkan insiden perundungan secara aman dan rahasia. Sekolah dapat menindaklanjuti laporan dengan lebih cepat dan efektif."
+title = "SOS & Pengaduan"
+summary = "Fitur pelaporan aman dan terstruktur untuk menyampaikan pengaduan, kondisi darurat, atau masalah di lingkungan sekolah."
+description = "Membantu sekolah merespons lebih cepat dan tepat terhadap berbagai situasi yang membutuhkan perhatian khusus, termasuk perundungan, keamanan, dan kenyamanan siswa."
 delay = "1.8"
 
 [[features]]
@@ -59,4 +59,20 @@ title = "Buku Tamu"
 summary = "Sistem pencatatan kunjungan ke sekolah yang rapi dan terintegrasi secara digital."
 description = "Buku Tamu digital mempermudah pencatatan dan pengelolaan data pengunjung sekolah. Informasi kunjungan tersimpan rapi dan dapat diakses kembali dengan mudah untuk kebutuhan administrasi."
 delay = "2.1"
+
+
+[[features]]
+icon = "/img/icons/feature-009.svg"
+title = "Keagamaan"
+summary = "Fitur Keagamaan mendukung pencatatan dan pemantauan kegiatan tahfidz dan tilawah. Merupakan upaya pembinaan karakter dan nilai spiritual siswa."
+description = "Memudahkan guru, siswa, dan orang tua dalam memonitor perkembangan kegiatan pembiasaan tahfidz dan tilawah secara terintegrasi."
+delay = "2.4"
+
+
+[[features]]
+icon = "/img/icons/feature-010.svg"
+title = "Switch Account"
+summary = "Fitur Switch Account memudahkan orang tua/wali murid yang memiliki lebih dari satu anak di sekolah yang sama untuk berpindah akun dengan cepat, tanpa perlu logout dan login ulang."
+description = "Monitoring presensi, akademik, dan pembayaran setiap anak menjadi lebih praktis dan efisien."
+delay = "2.7"
 +++
