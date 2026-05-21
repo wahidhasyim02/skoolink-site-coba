@@ -87,9 +87,22 @@ var brandSlider = new Swiper(".brand-slider-2", {
 });
 // ========================TF-3 : Testimonial Slider================================
 var testimonialOne = new Swiper(".testimonial-one", {
+  slidesPerView: 1,
+  spaceBetween: 30,
+  speed: 800,
   navigation: {
     nextEl: ".slider-nav-btn-next",
     prevEl: ".slider-nav-btn-prev",
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
   },
 });
 
