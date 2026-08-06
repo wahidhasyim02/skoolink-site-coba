@@ -1,0 +1,202 @@
+{{ define "main" }}
+
+<!--...::: Hero Section List Promo Start :::... -->
+<section class="section-hero-promo relative overflow-hidden bg-gradient-to-b from-[#F2FBF7] via-white to-white pb-16 pt-24 md:pt-32 lg:pb-20 lg:pt-36">
+  <!-- Background Elements -->
+  <div class="absolute left-0 top-0 -z-10 h-full w-full opacity-50">
+    <img src="/img/elements/hero-3-bg-shape.svg" alt="hero-bg" class="h-full w-full object-cover" />
+  </div>
+
+  <div class="container-default relative z-10">
+    
+    {{ $featuredPromo := first 1 .Pages }}
+    {{ range $featuredPromo }}
+    <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+
+      <!-- HERO LEFT COLUMN (Featured Promo Highlight Text & CTA) -->
+      <div class="jos lg:col-span-6 xl:col-span-6" data-jos_animation="fade-right">
+        <div class="flex flex-col items-start">
+          
+          <!-- Badge Tag Top -->
+          <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-[#15CF92]/30 bg-[#15CF92]/10 px-4 py-2 text-sm font-semibold text-[#06CF99]">
+            <span class="flex h-2 w-2 rounded-full bg-[#15CF92] animate-pulse"></span>
+            <span>🔥 {{ with .Params.badge }}{{ . }}{{ else }}PROMO UTAMA{{ end }}</span>
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="mb-6 font-Inter text-3xl font-extrabold leading-tight text-ColorMidnightMoss sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl xxl:text-[50px]">
+            {{ .Title }}
+          </h1>
+
+          <!-- Subheadline / Summary -->
+          <p class="mb-8 text-base text-ColorBlack/70 sm:text-lg lg:text-xl leading-relaxed">
+            {{ .Params.summary }}
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="mb-8 flex flex-wrap items-center gap-4 sm:gap-6">
+            <a href="{{ .RelPermalink }}" 
+               class="btn is-caribbean-green is-transparent is-rounded btn-animation is-large group inline-flex items-center gap-3 shadow-lg shadow-[#15CF92]/20">
+              <span>Lihat Detail Promo</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="https://wa.me/{{ site.Params.whatsapp }}?text=Halo%20Skoolink,%20saya%20tertarik%20dengan%20{{ .Title }}" 
+               target="_blank" rel="noopener" 
+               class="btn is-outline-midnight-moss is-rounded btn-animation is-large group inline-flex items-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg text-[#15CF92]"></i>
+              <span>Klaim via WA</span>
+            </a>
+          </div>
+
+          <!-- Period Note -->
+          {{ with .Params.offer_period }}
+          <div class="flex items-center gap-2 text-sm font-medium text-gray-500 bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm">
+            <i class="fa-solid fa-calendar-check text-[#15CF92]"></i>
+            <span>{{ . }}</span>
+          </div>
+          {{ end }}
+
+        </div>
+      </div>
+
+      <!-- HERO RIGHT COLUMN (Full Uncropped Responsive Flyer Poster) -->
+      <div class="jos lg:col-span-6 xl:col-span-6" data-jos_animation="fade-left">
+        <div class="relative mx-auto max-w-[460px] lg:max-w-none">
+          
+          {{ if .Params.image }}
+          <!-- Flyer Image Frame (Uncropped h-auto w-full) -->
+          <div class="group relative overflow-hidden rounded-2xl border border-gray-200/80 bg-white p-2 shadow-2xl transition duration-500 hover:shadow-[#15CF92]/20">
+            <a href="{{ .RelPermalink }}" class="block overflow-hidden rounded-xl">
+              <img src="{{ .Params.image }}" alt="{{ .Title }}" class="h-auto w-full max-w-full rounded-xl object-contain transition duration-500 group-hover:scale-[1.01]" />
+            </a>
+          </div>
+          {{ else }}
+          <!-- Fallback if no image parameter -->
+          <div class="overflow-hidden rounded-3xl border border-gray-100 bg-white p-4 sm:p-6 shadow-2xl">
+            <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#03644C] via-[#05A87D] to-[#15CF92] p-8 text-white text-center">
+              <span class="rounded-full bg-ColorYellow px-3 py-1 text-xs font-bold text-ColorMidnightMoss uppercase">PROMO</span>
+              <h2 class="mt-4 font-Kanit text-3xl font-extrabold uppercase text-white">{{ .Title }}</h2>
+            </div>
+          </div>
+          {{ end }}
+
+        </div>
+      </div>
+
+    </div>
+    {{ else }}
+    <!-- Fallback if no promo items exist yet -->
+    <div class="text-center py-12">
+      <h1 class="text-3xl font-bold text-ColorMidnightMoss">Promo & Penawaran Spesial Skoolink</h1>
+      <p class="text-gray-600 mt-2">Belum ada promo aktif saat ini. Nantikan penawaran menarik dari kami segera!</p>
+    </div>
+    {{ end }}
+
+  </div>
+</section>
+<!--...::: Hero Section List Promo End :::... -->
+
+
+<!--...::: Promo Catalogue List Section ("Hot Deals Teratas" Layout from Image 2) :::... -->
+<section class="section-promo-list bg-slate-50 py-16 lg:py-24">
+  <div class="container-default">
+    
+    <!-- Section Header -->
+    <div class="jos mx-auto mb-12 max-w-[650px] text-center lg:mb-16" data-jos_animation="fade-up">
+      <div class="mb-3 inline-block rounded-full bg-[#15CF92]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#05A87D]">
+        Daftar Promo Terkini
+      </div>
+      <h2 class="mb-4 font-Inter text-3xl font-extrabold text-ColorMidnightMoss md:text-4xl lg:text-5xl">
+        Hot Deals & Penawaran Promo
+      </h2>
+      <p class="text-base text-gray-600 md:text-lg">
+        Pilih paket promo sekolah digital Skoolink yang sesuai dengan kebutuhan sekolah Anda.
+      </p>
+    </div>
+
+    <!-- Grid List Cards (Dynamic Range .Pages) -->
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
+      
+      {{ range .Pages }}
+      <div class="jos group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#15CF92] hover:shadow-xl" data-jos_animation="fade-up">
+        
+        <div>
+          <!-- Card Flyer Image Header (Uncropped / Clean Ratio) -->
+          {{ if .Params.image }}
+          <a href="{{ .RelPermalink }}" class="relative block w-full overflow-hidden bg-slate-100 p-2">
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" class="h-auto w-full max-h-[360px] object-cover object-top rounded-xl transition duration-500 group-hover:scale-[1.02]" />
+            <div class="absolute left-4 top-4">
+              <span class="rounded-full bg-[#15CF92] px-3 py-1 text-xs font-bold text-ColorMidnightMoss shadow-md">
+                {{ with .Params.badge }}{{ . }}{{ else }}PROMO{{ end }}
+              </span>
+            </div>
+          </a>
+          {{ else }}
+          <div class="flex h-48 w-full items-center justify-center bg-gradient-to-br from-[#E0FBF4] to-[#B2F3E1] p-4 text-center">
+            <div class="font-Kanit text-xl font-extrabold text-ColorMidnightMoss uppercase">{{ .Title }}</div>
+          </div>
+          {{ end }}
+
+          <div class="p-6 sm:p-7">
+            <!-- Card Title & Excerpt -->
+            <h3 class="mb-3 font-Inter text-xl font-bold text-ColorMidnightMoss group-hover:text-[#05A87D] transition">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h3>
+            <p class="mb-4 text-sm text-gray-600 leading-relaxed line-clamp-3">
+              {{ .Params.summary }}
+            </p>
+
+            {{ with .Params.offer_period }}
+            <div class="mb-2 flex items-center gap-1.5 text-xs font-medium text-gray-500">
+              <i class="fa-solid fa-clock text-[#15CF92]"></i>
+              <span>{{ . }}</span>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+
+        <!-- Card Action Button -->
+        <div class="flex items-center gap-3 border-t border-gray-100 px-6 py-4 sm:px-7">
+          <a href="{{ .RelPermalink }}" 
+             class="flex-1 rounded-xl bg-[#15CF92] py-2.5 text-center text-sm font-bold text-ColorMidnightMoss transition hover:bg-ColorMidnightMoss hover:text-white">
+            Lihat Detail Promo
+          </a>
+          <a href="https://wa.me/{{ site.Params.whatsapp }}?text=Halo%20Skoolink,%20saya%20ingin%20tanya%20{{ .Title }}" 
+             target="_blank" rel="noopener"
+             class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-200 text-gray-600 transition hover:border-[#15CF92] hover:bg-[#15CF92] hover:text-white"
+             title="Tanya via WA">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+          </a>
+        </div>
+
+      </div>
+      {{ end }}
+
+      <!-- Fallback Card for Upcoming Promo (Keeps layout clean when 1 promo exists) -->
+      <div class="jos relative flex flex-col justify-between overflow-hidden rounded-2xl border-2 border-dashed border-gray-300 bg-white/60 p-6 text-center sm:p-8" data-jos_animation="fade-up">
+        <div class="my-auto py-6">
+          <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 text-2xl text-gray-400">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <h3 class="mb-2 font-Inter text-lg font-bold text-ColorMidnightMoss">
+            Promo Menarik Lainnya
+          </h3>
+          <p class="mb-6 text-xs text-gray-500 max-w-xs mx-auto">
+            Nantikan kejutan promo dan penawaran spesial Skoolink berikutnya untuk sekolah Anda!
+          </p>
+          <a href="https://wa.me/{{ site.Params.whatsapp }}?text=Halo%20Skoolink,%20saya%20ingin%20mendapatkan%20info%20promo%20terbaru" 
+             target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 rounded-xl bg-gray-100 px-4 py-2 text-xs font-bold text-gray-700 hover:bg-[#15CF92] hover:text-ColorMidnightMoss transition">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Dapatkan Info Promo WA</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!--...::: Promo Catalogue List Section End :::... -->
+
+{{ end }}
