@@ -37,15 +37,18 @@ menu:
     - name: Fitur
       url: /#section-feature
       weight: 3 
+    - name: Promo
+      url: /promo/
+      weight: 4
     - name: Testimonial
       url: /#section-testimonial
-      weight: 4
+      weight: 5
     - name: Blog
       url: /#section-blog
-      weight: 5
+      weight: 6
     - name: Kontak
       url: /#section-contact
-      weight: 6
+      weight: 7
   primary:
     - name: Home
       url: /
@@ -56,12 +59,15 @@ menu:
     - name: Fitur
       url: /#section-feature
       weight: 3 
+    - name: Promo
+      url: /promo/
+      weight: 4
     - name: Kontak
       url: /#section-contact
-      weight: 4
+      weight: 5
     - name: Privacy Policy
       url: /legal/privacy-policy
-      weight: 5  
+      weight: 6  
   utility:
     - name: Signup
       url: /signup

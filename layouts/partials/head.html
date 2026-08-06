@@ -55,7 +55,7 @@
   {{ if eq hugo.Environment "development" }}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}">
   {{ else }}
-    {{ $css = $css | resources.PostCSS | resources.Minify | resources.Fingerprint }}
+    {{ $css = $css | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
   {{ end }}
 {{ else }}
