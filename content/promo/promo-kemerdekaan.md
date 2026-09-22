@@ -1,15 +1,17 @@
 ---
 title: 'Promo Kemerdekaan: Gratis Mobile White Label Android'
 date: 2026-08-01T00:00:00
-badge: PROMO KEMERDEKAAN
-benefits_subtitle: Semua keunggulan eksklusif dalam satu paket promo terbatas Skoolink.
-benefits_title: 'Sekolah Anda Akan Mendapatkan:'
 benefits:
   - badge: Branding Eksklusif
     description: Nama & logo sekolah tampil langsung di aplikasi Skoolink.
     icon: fa-solid fa-shield-halved
     id: 1
     title: Identitas Sekolah Sendiri
+  - badge: Sistem Terintegrasi
+    description: Data lebih aman dengan sistem terintegrasi Skoolink.
+    icon: fa-solid fa-user-shield
+    id: 5
+    title: Keamanan & Kepercayaan Terjaga
   - badge: Kepercayaan Ortua
     description: Meningkatkan kepercayaan orang tua dan citra sekolah.
     icon: fa-solid fa-mobile-screen
@@ -25,11 +27,9 @@ benefits:
     icon: fa-solid fa-users
     id: 4
     title: Pengalaman Pengguna Lebih Baik
-  - badge: Sistem Terintegrasi
-    description: Data lebih aman dengan sistem terintegrasi Skoolink.
-    icon: fa-solid fa-user-shield
-    id: 5
-    title: Keamanan & Kepercayaan Terjaga
+badge: PROMO KEMERDEKAAN
+benefits_subtitle: Semua keunggulan eksklusif dalam satu paket promo terbatas Skoolink.
+benefits_title: 'Sekolah Anda Akan Mendapatkan:'
 contact_info:
   email: hello@skoolink.id
   phone: +62 877 0101 1100
