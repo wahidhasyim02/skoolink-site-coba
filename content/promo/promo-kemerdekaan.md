@@ -1,6 +1,6 @@
 ---
 title: 'Promo Kemerdekaan: Gratis Mobile White Label Android'
-date: 2026-09-22T15:38:00
+date: 2026-08-01T00:00:00
 badge: PROMO KEMERDEKAAN
 benefits_subtitle: Semua keunggulan eksklusif dalam satu paket promo terbatas Skoolink.
 benefits_title: 'Sekolah Anda Akan Mendapatkan:'
