@@ -7,11 +7,6 @@ benefits:
     icon: fa-solid fa-shield-halved
     id: 1
     title: Identitas Sekolah Sendiri
-  - badge: Sistem Terintegrasi
-    description: Data lebih aman dengan sistem terintegrasi Skoolink.
-    icon: fa-solid fa-user-shield
-    id: 5
-    title: Keamanan & Kepercayaan Terjaga
   - badge: Kepercayaan Ortua
     description: Meningkatkan kepercayaan orang tua dan citra sekolah.
     icon: fa-solid fa-mobile-screen
@@ -27,6 +22,11 @@ benefits:
     icon: fa-solid fa-users
     id: 4
     title: Pengalaman Pengguna Lebih Baik
+  - badge: Sistem Terintegrasi
+    description: Data lebih aman dengan sistem terintegrasi Skoolink.
+    icon: fa-solid fa-user-shield
+    id: 5
+    title: Keamanan & Kepercayaan Terjaga
 badge: PROMO KEMERDEKAAN
 benefits_subtitle: Semua keunggulan eksklusif dalam satu paket promo terbatas Skoolink.
 benefits_title: 'Sekolah Anda Akan Mendapatkan:'
