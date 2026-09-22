@@ -1,0 +1,22 @@
+
+services:
+  dev:
+    build:
+      context: .
+      target: builder
+    ports:
+      - "1314:1313"
+    volumes:
+      - ".:/src"
+    command:
+      - npm
+      - run
+      - watch
+    develop:
+      watch:
+        - path: ./Dockerfile
+          action: rebuild
+        - path: ./assets/css
+          action: rebuild
+        - path: package.json
+          action: rebuild
