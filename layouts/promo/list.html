@@ -9,7 +9,14 @@
 
   <div class="container-default relative z-10">
     
-    {{ $featuredPromo := first 1 .Pages }}
+    {{ $allPromos := .Pages }}
+    {{ $activePromos := where $allPromos ".Params.expired" "!=" true }}
+    {{ $featuredPromo := first 1 $activePromos }}
+    {{ if not $featuredPromo }}
+      {{ $featuredPromo = first 1 $allPromos }}
+    {{ end }}
+    {{ $waNumber := site.Params.whatsApp | default site.Params.whatsapp }}
+
     {{ range $featuredPromo }}
     <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
 
@@ -18,9 +25,9 @@
         <div class="flex flex-col items-start">
           
           <!-- Badge Tag Top -->
-          <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-[#15CF92]/30 bg-[#15CF92]/10 px-4 py-2 text-sm font-semibold text-[#06CF99]">
-            <span class="flex h-2 w-2 rounded-full bg-[#15CF92] animate-pulse"></span>
-            <span>🔥 {{ with .Params.badge }}{{ . }}{{ else }}PROMO UTAMA{{ end }}</span>
+          <div class="mb-5 inline-flex items-center gap-2 rounded-full border {{ if .Params.expired }}border-red-200 bg-red-50 text-red-600{{ else }}border-[#15CF92]/30 bg-[#15CF92]/10 text-[#06CF99]{{ end }} px-4 py-2 text-sm font-semibold">
+            <span class="flex h-2 w-2 rounded-full {{ if .Params.expired }}bg-red-500{{ else }}bg-[#15CF92] animate-pulse{{ end }}"></span>
+            <span>{{ if .Params.expired }}PROMO BERAKHIR{{ else }}🔥 {{ with .Params.badge }}{{ . }}{{ else }}PROMO UTAMA{{ end }}{{ end }}</span>
           </div>
 
           <!-- Main Title -->
@@ -40,7 +47,7 @@
               <span>Lihat Detail Promo</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a href="https://wa.me/{{ site.Params.whatsapp }}?text=Halo%20Skoolink,%20saya%20tertarik%20dengan%20{{ .Title }}" 
+            <a href="https://wa.me/{{ $waNumber }}?text=Halo%20Skoolink,%20saya%20tertarik%20dengan%20{{ .Title }}" 
                target="_blank" rel="noopener" 
                class="btn is-outline-midnight-moss is-rounded btn-animation is-large group inline-flex items-center gap-2">
               <i class="fa-brands fa-whatsapp text-lg text-[#15CF92]"></i>
@@ -50,8 +57,8 @@
 
           <!-- Period Note -->
           {{ with .Params.offer_period }}
-          <div class="flex items-center gap-2 text-sm font-medium text-gray-500 bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm">
-            <i class="fa-solid fa-calendar-check text-[#15CF92]"></i>
+          <div class="flex items-center gap-2 text-sm font-medium {{ if $.Params.expired }}text-red-500 bg-red-50 border-red-100{{ else }}text-gray-500 bg-white border-gray-100{{ end }} px-4 py-2 rounded-xl border shadow-sm">
+            <i class="fa-solid {{ if $.Params.expired }}fa-calendar-xmark text-red-500{{ else }}fa-calendar-check text-[#15CF92]{{ end }}"></i>
             <span>{{ . }}</span>
           </div>
           {{ end }}
@@ -85,10 +92,14 @@
 
     </div>
     {{ else }}
-    <!-- Fallback if no promo items exist yet -->
+    <!-- Fallback if no promo items exist yet (uses _index.md content) -->
     <div class="text-center py-12">
-      <h1 class="text-3xl font-bold text-ColorMidnightMoss">Promo & Penawaran Spesial Skoolink</h1>
-      <p class="text-gray-600 mt-2">Belum ada promo aktif saat ini. Nantikan penawaran menarik dari kami segera!</p>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-ColorMidnightMoss mb-4">
+        {{ with .Params.headline }}{{ . }}{{ else }}{{ .Title }}{{ end }}
+      </h1>
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+        {{ with .Params.subheadline }}{{ . }}{{ else }}{{ .Params.summary }}{{ end }}
+      </p>
     </div>
     {{ end }}
 
@@ -97,20 +108,20 @@
 <!--...::: Hero Section List Promo End :::... -->
 
 
-<!--...::: Promo Catalogue List Section ("Hot Deals Teratas" Layout from Image 2) :::... -->
+<!--...::: Promo Catalogue List Section :::... -->
 <section class="section-promo-list bg-slate-50 py-16 lg:py-24">
   <div class="container-default">
     
-    <!-- Section Header -->
+    <!-- Section Header (Connected to _index.md headline / subheadline) -->
     <div class="jos mx-auto mb-12 max-w-[650px] text-center lg:mb-16" data-jos_animation="fade-up">
       <div class="mb-3 inline-block rounded-full bg-[#15CF92]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#05A87D]">
         Daftar Promo Terkini
       </div>
       <h2 class="mb-4 font-Inter text-3xl font-extrabold text-ColorMidnightMoss md:text-4xl lg:text-5xl">
-        Hot Deals & Penawaran Promo
+        {{ with .Params.headline }}{{ . }}{{ else }}Hot Deals & Penawaran Promo{{ end }}
       </h2>
       <p class="text-base text-gray-600 md:text-lg">
-        Pilih paket promo sekolah digital Skoolink yang sesuai dengan kebutuhan sekolah Anda.
+        {{ with .Params.subheadline }}{{ . }}{{ else }}Pilih paket promo sekolah digital Skoolink yang sesuai dengan kebutuhan sekolah Anda.{{ end }}
       </p>
     </div>
 
@@ -118,7 +129,8 @@
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
       
       {{ range .Pages }}
-      <div class="jos group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#15CF92] hover:shadow-xl" data-jos_animation="fade-up">
+      {{ $isExpired := .Params.expired }}
+      <div class="jos group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 {{ if $isExpired }}opacity-80 grayscale hover:opacity-100 hover:grayscale-0{{ else }}hover:-translate-y-1.5 hover:border-[#15CF92] hover:shadow-xl{{ end }}" data-jos_animation="fade-up">
         
         <div>
           <!-- Card Flyer Image Header (Uncropped / Clean Ratio) -->
@@ -126,9 +138,15 @@
           <a href="{{ .RelPermalink }}" class="relative block w-full overflow-hidden bg-slate-100 p-2">
             <img src="{{ .Params.image }}" alt="{{ .Title }}" class="h-auto w-full max-h-[360px] object-cover object-top rounded-xl transition duration-500 group-hover:scale-[1.02]" />
             <div class="absolute left-4 top-4">
+              {{ if $isExpired }}
+              <span class="rounded-full bg-red-100 border border-red-200 px-3 py-1 text-xs font-bold text-red-600 shadow-sm">
+                BERAKHIR
+              </span>
+              {{ else }}
               <span class="rounded-full bg-[#15CF92] px-3 py-1 text-xs font-bold text-ColorMidnightMoss shadow-md">
                 {{ with .Params.badge }}{{ . }}{{ else }}PROMO{{ end }}
               </span>
+              {{ end }}
             </div>
           </a>
           {{ else }}
@@ -147,8 +165,8 @@
             </p>
 
             {{ with .Params.offer_period }}
-            <div class="mb-2 flex items-center gap-1.5 text-xs font-medium text-gray-500">
-              <i class="fa-solid fa-clock text-[#15CF92]"></i>
+            <div class="mb-2 flex items-center gap-1.5 text-xs font-medium {{ if $isExpired }}text-red-500{{ else }}text-gray-500{{ end }}">
+              <i class="fa-solid {{ if $isExpired }}fa-calendar-xmark text-red-500{{ else }}fa-clock text-[#15CF92]{{ end }}"></i>
               <span>{{ . }}</span>
             </div>
             {{ end }}
@@ -157,16 +175,23 @@
 
         <!-- Card Action Button -->
         <div class="flex items-center gap-3 border-t border-gray-100 px-6 py-4 sm:px-7">
+          {{ if $isExpired }}
+          <a href="{{ .RelPermalink }}" 
+             class="flex-1 rounded-xl bg-gray-100 py-2.5 text-center text-sm font-semibold text-gray-500 transition hover:bg-gray-200">
+            Lihat Detail (Berakhir)
+          </a>
+          {{ else }}
           <a href="{{ .RelPermalink }}" 
              class="flex-1 rounded-xl bg-[#15CF92] py-2.5 text-center text-sm font-bold text-ColorMidnightMoss transition hover:bg-ColorMidnightMoss hover:text-white">
             Lihat Detail Promo
           </a>
-          <a href="https://wa.me/{{ site.Params.whatsapp }}?text=Halo%20Skoolink,%20saya%20ingin%20tanya%20{{ .Title }}" 
+          <a href="https://wa.me/{{ $waNumber }}?text=Halo%20Skoolink,%20saya%20ingin%20tanya%20{{ .Title }}" 
              target="_blank" rel="noopener"
              class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-200 text-gray-600 transition hover:border-[#15CF92] hover:bg-[#15CF92] hover:text-white"
              title="Tanya via WA">
             <i class="fa-brands fa-whatsapp text-lg"></i>
           </a>
+          {{ end }}
         </div>
 
       </div>
@@ -184,7 +209,7 @@
           <p class="mb-6 text-xs text-gray-500 max-w-xs mx-auto">
             Nantikan kejutan promo dan penawaran spesial Skoolink berikutnya untuk sekolah Anda!
           </p>
-          <a href="https://wa.me/{{ site.Params.whatsapp }}?text=Halo%20Skoolink,%20saya%20ingin%20mendapatkan%20info%20promo%20terbaru" 
+          <a href="https://wa.me/{{ $waNumber }}?text=Halo%20Skoolink,%20saya%20ingin%20mendapatkan%20info%20promo%20terbaru" 
              target="_blank" rel="noopener"
              class="inline-flex items-center gap-2 rounded-xl bg-gray-100 px-4 py-2 text-xs font-bold text-gray-700 hover:bg-[#15CF92] hover:text-ColorMidnightMoss transition">
             <i class="fa-brands fa-whatsapp"></i>

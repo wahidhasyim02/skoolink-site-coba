@@ -6,6 +6,7 @@ badge: "PROMO KEMERDEKAAN"
 offer_title: "GRATIS MOBILE WHITE LABEL ANDROID"
 offer_period: "Promo berlaku hingga 31 Agustus 2026"
 featured: true
+expired: true
 image: "/img/promo/promo-kemerdekaan-2026.jpg.jpeg"
 
 quote_box:

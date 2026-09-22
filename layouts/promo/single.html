@@ -37,10 +37,17 @@
         <div class="flex flex-col items-start">
           
           <!-- Badge Tag -->
+          {{ if .Params.expired }}
+          <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-red-300 bg-red-50 px-4 py-2 text-sm font-semibold text-red-600">
+            <span class="flex h-2 w-2 rounded-full bg-red-500"></span>
+            <span>PROMO TELAH BERAKHIR</span>
+          </div>
+          {{ else }}
           <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-[#15CF92]/30 bg-[#15CF92]/10 px-4 py-2 text-sm font-semibold text-[#06CF99]">
             <span class="flex h-2 w-2 rounded-full bg-[#15CF92] animate-pulse"></span>
             <span>{{ with .Params.badge }}{{ . }}{{ else }}PROMO EKSKLUSIF{{ end }}</span>
           </div>
+          {{ end }}
 
           <!-- Main Title -->
           <h1 class="mb-6 font-Inter text-3xl font-extrabold leading-tight text-ColorMidnightMoss sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl xxl:text-[50px]">
@@ -52,26 +59,40 @@
             {{ .Params.summary }}
           </p>
 
+          {{ $waNumber := site.Params.whatsApp | default site.Params.whatsapp }}
           <!-- CTA Buttons -->
           <div class="mb-8 flex flex-wrap items-center gap-4 sm:gap-6">
-            <a href="https://wa.me/{{ site.Params.whatsapp }}?text=Halo%20Skoolink,%20saya%20ingin%20mengambil%20{{ .Title }}" 
+            {{ if .Params.expired }}
+            <button disabled class="cursor-not-allowed rounded-full bg-gray-200 px-6 py-3.5 text-base font-bold text-gray-500 inline-flex items-center gap-2 shadow-none">
+              <i class="fa-solid fa-ban"></i>
+              <span>Promo Telah Berakhir</span>
+            </button>
+            <a href="https://wa.me/{{ $waNumber }}?text=Halo%20Skoolink,%20apakah%20masih%20ada%20promo%20seperti%20{{ .Title }}?" 
+               target="_blank" rel="noopener" 
+               class="btn is-outline-midnight-moss is-rounded btn-animation is-large group inline-flex items-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg text-[#15CF92]"></i>
+              <span>Tanya Promo Terbaru</span>
+            </a>
+            {{ else }}
+            <a href="https://wa.me/{{ $waNumber }}?text=Halo%20Skoolink,%20saya%20ingin%20mengambil%20{{ .Title }}" 
                target="_blank" rel="noopener" 
                class="btn is-caribbean-green is-transparent is-rounded btn-animation is-large group inline-flex items-center gap-3 shadow-lg shadow-[#15CF92]/20">
               <i class="fa-brands fa-whatsapp text-xl"></i>
               <span>Klaim Promo via WhatsApp</span>
             </a>
-            <a href="https://wa.me/{{ site.Params.whatsapp }}" 
+            <a href="https://wa.me/{{ $waNumber }}" 
                target="_blank" rel="noopener" 
                class="btn is-outline-midnight-moss is-rounded btn-animation is-large group inline-flex items-center gap-2">
               <i class="fa-solid fa-comments"></i>
               <span>Konsultasi Dulu</span>
             </a>
+            {{ end }}
           </div>
 
           <!-- Period Note -->
           {{ with .Params.offer_period }}
-          <div class="flex items-center gap-2 text-sm font-medium text-gray-600 bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm">
-            <i class="fa-solid fa-calendar-check text-[#15CF92] text-lg"></i>
+          <div class="flex items-center gap-2 text-sm font-medium {{ if $.Params.expired }}text-red-500 bg-red-50 border-red-100{{ else }}text-gray-600 bg-white border-gray-100{{ end }} px-4 py-2 rounded-xl border shadow-sm">
+            <i class="fa-solid {{ if $.Params.expired }}fa-calendar-xmark text-red-500{{ else }}fa-calendar-check text-[#15CF92]{} text-lg{{ end }}"></i>
             <span>{{ . }}</span>
           </div>
           {{ end }}
@@ -108,7 +129,8 @@
           </div>
         </div>
 
-        <a href="https://wa.me/{{ site.Params.whatsapp }}?text=Halo%20Skoolink,%20saya%20ingin%20mengambil%20{{ $.Title }}" 
+        {{ $waNum := site.Params.whatsApp | default site.Params.whatsapp }}
+        <a href="https://wa.me/{{ $waNum }}?text=Halo%20Skoolink,%20saya%20ingin%20mengambil%20{{ $.Title }}" 
            target="_blank" rel="noopener"
            class="shrink-0 rounded-xl bg-ColorYellow px-6 py-3 text-sm font-bold text-ColorMidnightMoss shadow-md hover:bg-white transition">
           Ambil Promo Sekarang
@@ -120,7 +142,8 @@
 {{ end }}
 
 
-<!--...::: Promo Benefits Grid (5 Cards from IG Image 1) :::... -->
+<!--...::: Promo Benefits Grid :::... -->
+{{ if .Params.benefits }}
 <section class="section-promo-benefits bg-slate-50 py-16 lg:py-24">
   <div class="container-default">
     
@@ -137,7 +160,7 @@
       </p>
     </div>
 
-    <!-- 5 Benefit Cards -->
+    <!-- Benefit Cards -->
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
       
       {{ range .Params.benefits }}
@@ -148,9 +171,11 @@
             <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#E0FBF4] to-[#B2F3E1] text-2xl text-[#05A87D] group-hover:bg-[#15CF92] group-hover:text-white transition duration-300">
               <i class="{{ .icon }}"></i>
             </div>
+            {{ with .badge }}
             <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-gray-600 group-hover:bg-[#15CF92]/10 group-hover:text-[#05A87D]">
-              {{ .badge }}
+              {{ . }}
             </span>
+            {{ end }}
           </div>
 
           <!-- Card Content -->
@@ -162,15 +187,17 @@
           </p>
         </div>
 
-        <!-- Card Footer -->
+        <!-- Card Footer Note (Optional / Dynamic) -->
+        {{ with .footer_note }}
         <div class="flex items-center gap-2 border-t border-gray-100 pt-4 text-xs font-bold text-[#05A87D]">
           <i class="fa-solid fa-circle-check"></i>
-          <span>Fitur Promo Terintegrasi</span>
+          <span>{{ . }}</span>
         </div>
+        {{ end }}
       </div>
       {{ end }}
 
-      <!-- 6th Card: Direct Action CTA Card -->
+      <!-- Final CTA Card -->
       <div class="jos relative flex flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-br from-ColorMidnightMoss to-[#0A102F] p-6 text-white shadow-xl sm:p-8" data-jos_animation="fade-up">
         <div>
           <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#15CF92] text-2xl text-ColorMidnightMoss">
@@ -184,7 +211,8 @@
           </p>
         </div>
 
-        <a href="https://wa.me/{{ site.Params.whatsapp }}?text=Halo%20Skoolink,%20saya%20ingin%20demo%20dan%20klaim%20promo" 
+        {{ $waNum := site.Params.whatsApp | default site.Params.whatsapp }}
+        <a href="https://wa.me/{{ $waNum }}?text=Halo%20Skoolink,%20saya%20ingin%20demo%20dan%20tanya%20promo%20{{ .Title }}" 
            target="_blank" rel="noopener"
            class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#15CF92] py-3 font-bold text-ColorMidnightMoss transition hover:bg-white">
           <i class="fa-brands fa-whatsapp text-lg"></i>
@@ -196,29 +224,46 @@
 
   </div>
 </section>
+{{ end }}
 <!--...::: Promo Benefits Grid End :::... -->
 
 
-<!--...::: Footer Contact Bar (From IG Image 1) :::... -->
+<!--...::: Promo Rich Content (Optional Body Text) :::... -->
+{{ with .Content }}
+<section class="section-promo-content py-12 bg-white border-t border-gray-100">
+  <div class="container-default max-w-4xl prose prose-slate">
+    {{ . }}
+  </div>
+</section>
+{{ end }}
+
+
+<!--...::: Footer Contact Bar (Dynamic with Global Fallbacks) :::... -->
 <section class="section-promo-contact bg-white py-12 border-t border-gray-100">
   <div class="container-default">
     <div class="rounded-2xl border border-gray-200 bg-[#F8FAFC] p-6 sm:p-8 md:p-10 shadow-sm" data-jos_animation="fade-up">
       <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
         
-        <!-- Info 1 -->
+        <!-- Info 1: Detail Penawaran -->
         <div class="flex items-start gap-4">
           <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
             <i class="fa-solid fa-gift"></i>
           </div>
           <div>
-            <h4 class="mb-1 font-Inter text-base font-bold text-ColorMidnightMoss">Promo Kemerdekaan</h4>
+            <h4 class="mb-1 font-Inter text-base font-bold text-ColorMidnightMoss">
+              {{ with .Params.badge }}{{ . }}{{ else }}Penawaran Spesial{{ end }}
+            </h4>
             <p class="mb-0 text-xs text-gray-600">
-              Gratis Mobile White Label Android hingga 31 Agustus 2026.
+              {{ with .Params.offer_title }}
+                {{ . }}{{ with $.Params.offer_period }} ({{ . }}){{ end }}
+              {{ else }}
+                {{ with .Params.offer_period }}{{ . }}{{ else }}{{ .Title }}{{ end }}
+              {{ end }}
             </p>
           </div>
         </div>
 
-        <!-- Info 2 -->
+        <!-- Info 2: Ajakan Diskusi -->
         <div class="flex items-start gap-4">
           <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
             <i class="fa-solid fa-comments"></i>
@@ -231,7 +276,17 @@
           </div>
         </div>
 
-        <!-- Info 3 -->
+        <!-- Info 3: Kontak Skoolink (Dinamis / Fallback ke hugo.yaml) -->
+        {{ $phone := site.Params.phone }}
+        {{ $email := site.Params.email }}
+        {{ $web := site.BaseURL }}
+        {{ with .Params.contact_info }}
+          {{ with .phone }}{{ $phone = . }}{{ end }}
+          {{ with .email }}{{ $email = . }}{{ end }}
+          {{ with .website }}{{ $web = . }}{{ end }}
+        {{ end }}
+        {{ $waNum := site.Params.whatsApp | default site.Params.whatsapp }}
+
         <div class="flex items-start gap-4">
           <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
             <i class="fa-solid fa-headset"></i>
@@ -239,10 +294,12 @@
           <div>
             <h4 class="mb-1 font-Inter text-base font-bold text-ColorMidnightMoss">Hubungi Kami</h4>
             <p class="mb-0 text-xs font-semibold text-ColorMidnightMoss">
-              <a href="https://wa.me/{{ site.Params.whatsapp }}" target="_blank" class="hover:text-[#15CF92]">+62 877 0101 1100</a>
+              <a href="https://wa.me/{{ $waNum }}" target="_blank" rel="noopener" class="hover:text-[#15CF92]">
+                {{ $phone }}
+              </a>
             </p>
             <p class="mb-0 text-xs text-gray-500">
-              hello@skoolink.id | https://skoolink.id
+              {{ $email }} | <a href="{{ $web }}" target="_blank" rel="noopener" class="hover:underline">{{ replace (replace $web "https://" "") "/" "" }}</a>
             </p>
           </div>
         </div>
