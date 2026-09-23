@@ -296,8 +296,7 @@
               {{ end }}
 
               {{ with $.Params.offer_period }}
-              (Hingga {{ if eq (printf "%T" .) "time.Time" }}{{ .Format "02 January 2006" }}{{ else }}{{ time.Format "02
-              January 2006" . | default . }}{{ end }})
+              (Hingga {{ if eq (printf "%T" .) "time.Time" }}{{ .Format "02 January 2006" }}{{ else }}{{ time.Format "02 January 2006" . | default . }}{{ end }})
               {{ end }}
             </p>
           </div>
