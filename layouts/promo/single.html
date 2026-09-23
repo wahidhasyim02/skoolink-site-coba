@@ -104,14 +104,15 @@
           {{ with .Params.offer_period }}
           <div
             class="flex items-center gap-2 text-sm font-medium {{ if $isExpired }}text-red-500 bg-red-50 border-red-100{{ else }}text-gray-600 bg-white border-gray-100{{ end }} px-4 py-2 rounded-xl border shadow-sm">
-            <i class="fa-solid {{ if $isExpired }}fa-calendar-xmark text-red-500{{ else }}fa-calendar-check text-[#15CF92] text-lg{{ end }}"></i>
+            <i
+              class="fa-solid {{ if $isExpired }}fa-calendar-xmark text-red-500{{ else }}fa-calendar-check text-[#15CF92] text-lg{{ end }}"></i>
             <span>
-              Promo berlaku hingga 
+              Promo berlaku hingga
               {{/* Format tanggal otomatis jika dikirim oleh CMS sebagai Date Object */}}
               {{ if eq (printf "%T" .) "time.Time" }}
-                {{ .Format "02 January 2006" }}
+              {{ .Format "02 January 2006" }}
               {{ else }}
-                {{ time.Format "02 January 2006" . | default . }}
+              {{ time.Format "02 January 2006" . | default . }}
               {{ end }}
             </span>
           </div>
@@ -195,7 +196,7 @@
         data-jos_animation="fade-up">
         <div>
           <!-- Card Header / Icon -->
-          <div class="mb-6 flex items-center justify-between">
+          <div class="mb-6 hidden items-center justify-between">
             <div
               class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#E0FBF4] to-[#B2F3E1] text-2xl text-[#05A87D] group-hover:from-[#15CF92] group-hover:to-[#05A87D] group-hover:text-white transition duration-300">
               <i class="{{ .icon }}"></i>
@@ -279,7 +280,8 @@
 
         <!-- Info 1: Detail Penawaran -->
         <div class="flex items-start gap-4">
-          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
+          <div
+            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
             <i class="fa-solid fa-gift"></i>
           </div>
           <div>
@@ -288,13 +290,14 @@
             </h4>
             <p class="mb-0 text-xs text-gray-600">
               {{ with .Params.offer_title }}
-                {{ . }}
+              {{ . }}
               {{ else }}
-                {{ $.Title }}
+              {{ $.Title }}
               {{ end }}
 
               {{ with $.Params.offer_period }}
-                (Hingga {{ if eq (printf "%T" .) "time.Time" }}{{ .Format "02 January 2006" }}{{ else }}{{ time.Format "02 January 2006" . | default . }}{{ end }})
+              (Hingga {{ if eq (printf "%T" .) "time.Time" }}{{ .Format "02 January 2006" }}{{ else }}{{ time.Format "02
+              January 2006" . | default . }}{{ end }})
               {{ end }}
             </p>
           </div>
