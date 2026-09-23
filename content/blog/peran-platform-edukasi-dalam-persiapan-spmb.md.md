@@ -1,10 +1,12 @@
 ---
 title: Peran Platform Edukasi dalam Persiapan SPMB
+slug: peran-platform-edukasi-dalam-persiapan-spmb
 date: 2025-06-17T08:00:00.000
 author: Skoolink
 image: /img/blog/blog-main-5.webp
 summary: SPMB jadi lebih mudah dan terstruktur dengan bantuan platform edukasi digital. Pelajari bagaimana teknologi mempermudah proses seleksi siswa baru.
-categories: digitalisasi-sekolah
+categories:
+  - digitalisasi-sekolah
 tags:
   - SPMB
   - pendaftaran siswa
@@ -12,7 +14,6 @@ tags:
   - transformasi digital
   - Skoolink
   - administrasi sekolah
-slug: peran-platform-edukasi-dalam-persiapan-spmb
 ---
 
 +++
