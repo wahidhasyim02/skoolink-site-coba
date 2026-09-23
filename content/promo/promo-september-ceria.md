@@ -4,7 +4,7 @@ date: 2026-09-01
 summary: "Rayakan September dengan langkah baru menuju sekolah yang lebih modern! Dapatkan Aplikasi Mobile White Label Android gratis dengan nama dan logo sekolah Anda sendiri hingga 30 September 2026."
 badge: "PROMO SEPTEMBER CERIA"
 offer_title: "GRATIS MOBILE WHITE LABEL ANDROID"
-offer_period: "Promo berlaku hingga 30 September 2026"
+offer_period: 2026-09-30
 featured: true
 image: "/img/promo/promo-september-ceria.png"
 

@@ -4,10 +4,10 @@ date: 2026-08-01
 summary: "Kesempatan terbaik untuk transformasi digital sekolah tanpa beban biaya. Dapatkan Aplikasi Mobile White Label Android gratis dengan nama & logo sekolah Anda sendiri hingga 31 Agustus 2026."
 badge: "PROMO KEMERDEKAAN"
 offer_title: "GRATIS MOBILE WHITE LABEL ANDROID"
-offer_period: "Promo berlaku hingga 31 Agustus 2026"
+offer_period: 2026-08-31
 featured: true
 expired: true
-image: "/img/promo/promo-kemerdekaan-2026.jpg.jpeg"
+image: "/img/promo/promo-kemerdekaan-2026.jpeg"
 
 quote_box:
   title: "Saatnya wujudkan sekolah yang lebih modern, efisien, dan dipercaya semua pihak."
@@ -42,19 +42,8 @@ benefits:
     icon: fa-solid fa-user-shield
     id: 5
     title: Keamanan & Kepercayaan Terjaga
-badge: PROMO KEMERDEKAAN
-benefits_subtitle: Semua keunggulan eksklusif dalam satu paket promo terbatas Skoolink.
-benefits_title: 'Sekolah Anda Akan Mendapatkan:'
 contact_info:
   email: hello@skoolink.id
   phone: +62 877 0101 1100
   website: https://skoolink.id
-featured: true
-image: /img/promo/promo-kemerdekaan-2026.jpg.jpeg
-offer_period: Promo berlaku hingga 31 Agustus 2026
-offer_title: GRATIS MOBILE WHITE LABEL ANDROID
-quote_box:
-  subtext: Ambil promo sekarang, manfaatnya besar untuk jangka panjang!
-  title: Saatnya wujudkan sekolah yang lebih modern, efisien, dan dipercaya semua pihak.
-summary: Kesempatan terbaik untuk transformasi digital sekolah tanpa beban biaya. Dapatkan Aplikasi Mobile White Label Android gratis dengan nama & logo sekolah Anda sendiri hingga 31 Agustus 2026.
 ---

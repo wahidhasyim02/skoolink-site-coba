@@ -1,7 +1,8 @@
 {{ define "main" }}
 
 <!--...::: Promo Single Hero Start (Image Left, Detail Right - No Breadcrumb) :::... -->
-<section class="section-promo-single-hero relative overflow-hidden bg-gradient-to-b from-[#F2FBF7] via-white to-white pb-16 pt-24 md:pt-32 lg:pb-24 lg:pt-36">
+<section
+  class="section-promo-single-hero relative overflow-hidden bg-gradient-to-b from-[#F2FBF7] via-white to-white pb-16 pt-24 md:pt-32 lg:pb-24 lg:pt-36">
   <!-- Background Elements -->
   <div class="absolute left-0 top-0 -z-10 h-full w-full opacity-50">
     <img src="/img/elements/hero-3-bg-shape.svg" alt="hero-bg" class="h-full w-full object-cover" />
@@ -9,21 +10,25 @@
 
   <div class="container-default relative z-10">
     <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8 xl:gap-12">
-      
+
       <!-- HERO LEFT COLUMN (Flyer Poster Display - 100% Uncropped & Responsive) -->
       <div class="jos lg:col-span-5 xl:col-span-5" data-jos_animation="fade-right">
         <div class="relative mx-auto max-w-[460px] lg:max-w-none">
-          
+
           {{ if .Params.image }}
-          <div class="group relative overflow-hidden rounded-3xl border border-gray-200/80 bg-white p-2 shadow-2xl transition duration-500 hover:shadow-[#15CF92]/20">
+          <div
+            class="group relative overflow-hidden rounded-3xl border border-gray-200/80 bg-white p-2 shadow-2xl transition duration-500 hover:shadow-[#15CF92]/20">
             <a href="{{ .Params.image }}" target="_blank" class="block overflow-hidden rounded-2xl">
-              <img src="{{ .Params.image }}" alt="{{ .Title }}" class="h-auto w-full max-w-full rounded-xl object-contain transition duration-500 group-hover:scale-[1.01]" />
+              <img src="{{ .Params.image }}" alt="{{ .Title }}"
+                class="h-auto w-full max-w-full rounded-xl object-contain transition duration-500 group-hover:scale-[1.01]" />
             </a>
           </div>
           {{ else }}
           <div class="overflow-hidden rounded-3xl border border-gray-100 bg-white p-6 shadow-2xl">
-            <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#03644C] via-[#05A87D] to-[#15CF92] p-8 text-white text-center">
-              <span class="rounded-full bg-ColorYellow px-3 py-1 text-xs font-bold text-ColorMidnightMoss uppercase">PROMO</span>
+            <div
+              class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#03644C] via-[#05A87D] to-[#15CF92] p-8 text-white text-center">
+              <span
+                class="rounded-full bg-ColorYellow px-3 py-1 text-xs font-bold text-ColorMidnightMoss uppercase">PROMO</span>
               <h2 class="mt-4 font-Kanit text-3xl font-extrabold uppercase text-white">{{ .Title }}</h2>
             </div>
           </div>
@@ -35,22 +40,25 @@
       <!-- HERO RIGHT COLUMN (Title, Excerpt, CTA Buttons, Period) -->
       <div class="jos lg:col-span-7 xl:col-span-7" data-jos_animation="fade-left">
         <div class="flex flex-col items-start">
-          
+
           <!-- Badge Tag -->
           {{ if .Params.expired }}
-          <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-red-300 bg-red-50 px-4 py-2 text-sm font-semibold text-red-600">
+          <div
+            class="mb-5 inline-flex items-center gap-2 rounded-full border border-red-300 bg-red-50 px-4 py-2 text-sm font-semibold text-red-600">
             <span class="flex h-2 w-2 rounded-full bg-red-500"></span>
             <span>PROMO TELAH BERAKHIR</span>
           </div>
           {{ else }}
-          <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-[#15CF92]/30 bg-[#15CF92]/10 px-4 py-2 text-sm font-semibold text-[#06CF99]">
+          <div
+            class="mb-5 inline-flex items-center gap-2 rounded-full border border-[#15CF92]/30 bg-[#15CF92]/10 px-4 py-2 text-sm font-semibold text-[#06CF99]">
             <span class="flex h-2 w-2 rounded-full bg-[#15CF92] animate-pulse"></span>
             <span>{{ with .Params.badge }}{{ . }}{{ else }}PROMO EKSKLUSIF{{ end }}</span>
           </div>
           {{ end }}
 
           <!-- Main Title -->
-          <h1 class="mb-6 font-Inter text-3xl font-extrabold leading-tight text-ColorMidnightMoss sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl xxl:text-[50px]">
+          <h1
+            class="mb-6 font-Inter text-3xl font-extrabold leading-tight text-ColorMidnightMoss sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl xxl:text-[50px]">
             {{ .Title }}
           </h1>
 
@@ -63,26 +71,26 @@
           <!-- CTA Buttons -->
           <div class="mb-8 flex flex-wrap items-center gap-4 sm:gap-6">
             {{ if .Params.expired }}
-            <button disabled class="cursor-not-allowed rounded-full bg-gray-200 px-6 py-3.5 text-base font-bold text-gray-500 inline-flex items-center gap-2 shadow-none">
+            <button disabled
+              class="cursor-not-allowed rounded-full bg-gray-200 px-6 py-3.5 text-base font-bold text-gray-500 inline-flex items-center gap-2 shadow-none">
               <i class="fa-solid fa-ban"></i>
               <span>Promo Telah Berakhir</span>
             </button>
-            <a href="https://wa.me/{{ $waNumber }}?text=Halo%20Skoolink,%20apakah%20masih%20ada%20promo%20seperti%20{{ .Title }}?" 
-               target="_blank" rel="noopener" 
-               class="btn is-outline-midnight-moss is-rounded btn-animation is-large group inline-flex items-center gap-2">
+            <a href="https://wa.me/{{ $waNumber }}?text=Halo%20Skoolink,%20apakah%20masih%20ada%20promo%20seperti%20{{ .Title }}?"
+              target="_blank" rel="noopener"
+              class="btn is-outline-midnight-moss is-rounded btn-animation is-large group inline-flex items-center gap-2">
               <i class="fa-brands fa-whatsapp text-lg text-[#15CF92]"></i>
               <span>Tanya Promo Terbaru</span>
             </a>
             {{ else }}
-            <a href="https://wa.me/{{ $waNumber }}?text=Halo%20Skoolink,%20saya%20ingin%20mengambil%20{{ .Title }}" 
-               target="_blank" rel="noopener" 
-               class="btn is-caribbean-green is-transparent is-rounded btn-animation is-large group inline-flex items-center gap-3 shadow-lg shadow-[#15CF92]/20">
+            <a href="https://wa.me/{{ $waNumber }}?text=Halo%20Skoolink,%20saya%20ingin%20mengambil%20{{ .Title }}"
+              target="_blank" rel="noopener"
+              class="btn is-caribbean-green is-transparent is-rounded btn-animation is-large group inline-flex items-center gap-3 shadow-lg shadow-[#15CF92]/20">
               <i class="fa-brands fa-whatsapp text-xl"></i>
               <span>Klaim Promo via WhatsApp</span>
             </a>
-            <a href="https://wa.me/{{ $waNumber }}" 
-               target="_blank" rel="noopener" 
-               class="btn is-outline-midnight-moss is-rounded btn-animation is-large group inline-flex items-center gap-2">
+            <a href="https://wa.me/{{ $waNumber }}" target="_blank" rel="noopener"
+              class="btn is-outline-midnight-moss is-rounded btn-animation is-large group inline-flex items-center gap-2">
               <i class="fa-solid fa-comments"></i>
               <span>Konsultasi Dulu</span>
             </a>
@@ -91,9 +99,11 @@
 
           <!-- Period Note -->
           {{ with .Params.offer_period }}
-          <div class="flex items-center gap-2 text-sm font-medium {{ if $.Params.expired }}text-red-500 bg-red-50 border-red-100{{ else }}text-gray-600 bg-white border-gray-100{{ end }} px-4 py-2 rounded-xl border shadow-sm">
-            <i class="fa-solid {{ if $.Params.expired }}fa-calendar-xmark text-red-500{{ else }}fa-calendar-check text-[#15CF92]{} text-lg{{ end }}"></i>
-            <span>{{ . }}</span>
+          <div
+            class="flex items-center gap-2 text-sm font-medium {{ if $.Params.expired }}text-red-500 bg-red-50 border-red-100{{ else }}text-gray-600 bg-white border-gray-100{{ end }} px-4 py-2 rounded-xl border shadow-sm">
+            <i
+              class="fa-solid {{ if $.Params.expired }}fa-calendar-xmark text-red-500{{ else }}fa-calendar-check text-[#15CF92]{} text-lg{{ end }}"></i>
+            <span>Promo berlaku hingga {{ time.Format "02 January 2006" . }}</span>
           </div>
           {{ end }}
 
@@ -110,13 +120,16 @@
 {{ with .Params.quote_box }}
 <section class="section-promo-quote py-8 bg-white">
   <div class="container-default">
-    <div class="jos relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#03644C] via-[#05A87D] to-[#15CF92] p-6 text-white shadow-xl md:p-10" data-jos_animation="fade-up">
+    <div
+      class="jos relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#03644C] via-[#05A87D] to-[#15CF92] p-6 text-white shadow-xl md:p-10"
+      data-jos_animation="fade-up">
       <div class="absolute -right-4 -bottom-4 text-white/10 text-9xl font-serif leading-none select-none">
         “
       </div>
       <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex items-start gap-4">
-          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/20 text-2xl text-ColorYellow">
+          <div
+            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/20 text-2xl text-ColorYellow">
             <i class="fa-solid fa-quote-left"></i>
           </div>
           <div>
@@ -130,9 +143,9 @@
         </div>
 
         {{ $waNum := site.Params.whatsApp | default site.Params.whatsapp }}
-        <a href="https://wa.me/{{ $waNum }}?text=Halo%20Skoolink,%20saya%20ingin%20mengambil%20{{ $.Title }}" 
-           target="_blank" rel="noopener"
-           class="shrink-0 rounded-xl bg-ColorYellow px-6 py-3 text-sm font-bold text-ColorMidnightMoss shadow-md hover:bg-white transition">
+        <a href="https://wa.me/{{ $waNum }}?text=Halo%20Skoolink,%20saya%20ingin%20mengambil%20{{ $.Title }}"
+          target="_blank" rel="noopener"
+          class="shrink-0 rounded-xl bg-ColorYellow px-6 py-3 text-sm font-bold text-ColorMidnightMoss shadow-md hover:bg-white transition">
           Ambil Promo Sekarang
         </a>
       </div>
@@ -146,33 +159,39 @@
 {{ if .Params.benefits }}
 <section class="section-promo-benefits bg-slate-50 py-16 lg:py-24">
   <div class="container-default">
-    
+
     <!-- Section Header -->
     <div class="jos mx-auto mb-12 max-w-[650px] text-center lg:mb-16" data-jos_animation="fade-up">
-      <div class="mb-3 inline-block rounded-full bg-[#15CF92]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#05A87D]">
+      <div
+        class="mb-3 inline-block rounded-full bg-[#15CF92]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#05A87D]">
         KEUNTUNGAN UTAMA
       </div>
       <h2 class="mb-4 font-Inter text-3xl font-extrabold text-ColorMidnightMoss md:text-4xl lg:text-5xl">
         {{ with .Params.benefits_title }}{{ . }}{{ else }}Sekolah Anda Akan Mendapatkan:{{ end }}
       </h2>
       <p class="text-base text-gray-600 md:text-lg">
-        {{ with .Params.benefits_subtitle }}{{ . }}{{ else }}Semua keunggulan eksklusif dalam satu paket promo terbatas Skoolink.{{ end }}
+        {{ with .Params.benefits_subtitle }}{{ . }}{{ else }}Semua keunggulan eksklusif dalam satu paket promo terbatas
+        Skoolink.{{ end }}
       </p>
     </div>
 
     <!-- Benefit Cards -->
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
-      
+
       {{ range .Params.benefits }}
-      <div class="jos group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#15CF92] hover:shadow-xl sm:p-8" data-jos_animation="fade-up">
+      <div
+        class="jos group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#15CF92] hover:shadow-xl sm:p-8"
+        data-jos_animation="fade-up">
         <div>
           <!-- Card Header / Icon -->
           <div class="mb-6 flex items-center justify-between">
-            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#E0FBF4] to-[#B2F3E1] text-2xl text-[#05A87D] group-hover:bg-[#15CF92] group-hover:text-white transition duration-300">
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#E0FBF4] to-[#B2F3E1] text-2xl text-[#05A87D] group-hover:bg-[#15CF92] group-hover:text-white transition duration-300">
               <i class="{{ .icon }}"></i>
             </div>
             {{ with .badge }}
-            <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-gray-600 group-hover:bg-[#15CF92]/10 group-hover:text-[#05A87D]">
+            <span
+              class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-gray-600 group-hover:bg-[#15CF92]/10 group-hover:text-[#05A87D]">
               {{ . }}
             </span>
             {{ end }}
@@ -198,9 +217,12 @@
       {{ end }}
 
       <!-- Final CTA Card -->
-      <div class="jos relative flex flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-br from-ColorMidnightMoss to-[#0A102F] p-6 text-white shadow-xl sm:p-8" data-jos_animation="fade-up">
+      <div
+        class="jos relative flex flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-br from-ColorMidnightMoss to-[#0A102F] p-6 text-white shadow-xl sm:p-8"
+        data-jos_animation="fade-up">
         <div>
-          <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#15CF92] text-2xl text-ColorMidnightMoss">
+          <div
+            class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#15CF92] text-2xl text-ColorMidnightMoss">
             <i class="fa-solid fa-paper-plane"></i>
           </div>
           <h3 class="mb-3 font-Inter text-2xl font-bold text-white">
@@ -212,9 +234,9 @@
         </div>
 
         {{ $waNum := site.Params.whatsApp | default site.Params.whatsapp }}
-        <a href="https://wa.me/{{ $waNum }}?text=Halo%20Skoolink,%20saya%20ingin%20demo%20dan%20tanya%20promo%20{{ .Title }}" 
-           target="_blank" rel="noopener"
-           class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#15CF92] py-3 font-bold text-ColorMidnightMoss transition hover:bg-white">
+        <a href="https://wa.me/{{ $waNum }}?text=Halo%20Skoolink,%20saya%20ingin%20demo%20dan%20tanya%20promo%20{{ .Title }}"
+          target="_blank" rel="noopener"
+          class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#15CF92] py-3 font-bold text-ColorMidnightMoss transition hover:bg-white">
           <i class="fa-brands fa-whatsapp text-lg"></i>
           <span>Hubungi Tim Skoolink</span>
         </a>
@@ -241,12 +263,14 @@
 <!--...::: Footer Contact Bar (Dynamic with Global Fallbacks) :::... -->
 <section class="section-promo-contact bg-white py-12 border-t border-gray-100">
   <div class="container-default">
-    <div class="rounded-2xl border border-gray-200 bg-[#F8FAFC] p-6 sm:p-8 md:p-10 shadow-sm" data-jos_animation="fade-up">
+    <div class="rounded-2xl border border-gray-200 bg-[#F8FAFC] p-6 sm:p-8 md:p-10 shadow-sm"
+      data-jos_animation="fade-up">
       <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
-        
+
         <!-- Info 1: Detail Penawaran -->
         <div class="flex items-start gap-4">
-          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
+          <div
+            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
             <i class="fa-solid fa-gift"></i>
           </div>
           <div>
@@ -255,9 +279,10 @@
             </h4>
             <p class="mb-0 text-xs text-gray-600">
               {{ with .Params.offer_title }}
-                {{ . }}{{ with $.Params.offer_period }} ({{ . }}){{ end }}
+              {{ . }}{{ with $.Params.offer_period }} (Hingga {{ time.Format "02 January 2006" . }}){{ end }}
               {{ else }}
-                {{ with .Params.offer_period }}{{ . }}{{ else }}{{ .Title }}{{ end }}
+              {{ with .Params.offer_period }}Promo berlaku hingga {{ time.Format "02 January 2006" . }}{{ else }}{{
+              .Title }}{{ end }}
               {{ end }}
             </p>
           </div>
@@ -265,7 +290,8 @@
 
         <!-- Info 2: Ajakan Diskusi -->
         <div class="flex items-start gap-4">
-          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
+          <div
+            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
             <i class="fa-solid fa-comments"></i>
           </div>
           <div>
@@ -281,14 +307,15 @@
         {{ $email := site.Params.email }}
         {{ $web := site.BaseURL }}
         {{ with .Params.contact_info }}
-          {{ with .phone }}{{ $phone = . }}{{ end }}
-          {{ with .email }}{{ $email = . }}{{ end }}
-          {{ with .website }}{{ $web = . }}{{ end }}
+        {{ with .phone }}{{ $phone = . }}{{ end }}
+        {{ with .email }}{{ $email = . }}{{ end }}
+        {{ with .website }}{{ $web = . }}{{ end }}
         {{ end }}
         {{ $waNum := site.Params.whatsApp | default site.Params.whatsapp }}
 
         <div class="flex items-start gap-4">
-          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
+          <div
+            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
             <i class="fa-solid fa-headset"></i>
           </div>
           <div>
@@ -299,7 +326,8 @@
               </a>
             </p>
             <p class="mb-0 text-xs text-gray-500">
-              {{ $email }} | <a href="{{ $web }}" target="_blank" rel="noopener" class="hover:underline">{{ replace (replace $web "https://" "") "/" "" }}</a>
+              {{ $email }} | <a href="{{ $web }}" target="_blank" rel="noopener" class="hover:underline">{{ replace
+                (replace $web "https://" "") "/" "" }}</a>
             </p>
           </div>
         </div>

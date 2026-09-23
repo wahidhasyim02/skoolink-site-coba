@@ -1,5 +1,5 @@
 baseURL: https://skoolink.id/
-languageCode: en-us
+languageCode: id
 title: Skoolink
 params:
   logo: /img/logoskoolink.svg
