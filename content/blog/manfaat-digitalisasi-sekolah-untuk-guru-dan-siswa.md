@@ -1,13 +1,18 @@
-+++
-title = "Manfaat Digitalisasi Sekolah untuk Guru dan Siswa"
-slug = "manfaat-digitalisasi-sekolah-untuk-guru-dan-siswa"
-date = 2025-06-19T09:00:00
-author = "Skoolink"
-image = "/img/blog/blog-main-1.svg"
-summary = "Mengapa digitalisasi menjadi kebutuhan mendesak dalam dunia pendidikan modern? Temukan jawabannya di sini."
-categories = ["Pendidikan"]
-tags = ["digitalisasi", "sekolah", "guru", "siswa", "teknologi pendidikan"]
-+++
+---
+title: Manfaat Digitalisasi Sekolah untuk Guru dan Siswa
+date: 2025-06-19T09:00:00.000
+author: Skoolink
+image: /img/blog/blog-main-1.svg
+summary: Mengapa digitalisasi menjadi kebutuhan mendesak dalam dunia pendidikan modern? Temukan jawabannya di sini.
+categories: digitalisasi-sekolah
+tags:
+  - digitalisasi
+  - sekolah
+  - guru
+  - siswa
+  - teknologi pendidikan
+slug: manfaat-digitalisasi-sekolah-untuk-guru-dan-siswa
+---
 
 Di era digital saat ini, transformasi pendidikan menjadi kebutuhan yang tidak dapat dihindari. Salah satu bentuk transformasi penting adalah digitalisasi sekolah. Dengan memanfaatkan teknologi, proses belajar-mengajar menjadi lebih efisien, transparan, dan inklusif.
 
@@ -15,4 +20,4 @@ Platform seperti **Skoolink** memungkinkan guru untuk mengelola jadwal pelajaran
 
 Lebih dari itu, digitalisasi membuka ruang partisipasi lebih besar bagi orang tua. Melalui fitur notifikasi real-time dan laporan digital, mereka bisa memantau perkembangan anak tanpa harus menunggu rapor akhir semester.
 
-Digitalisasi sekolah bukan sekadar mengikuti tren teknologi. Ini adalah langkah strategis untuk menciptakan ekosistem pendidikan yang adaptif terhadap perubahan zaman dan kebutuhan individu. Dengan sistem yang lebih terbuka dan akurat, semua pihak—guru, siswa, maupun orang tua—bisa lebih terlibat dan bertanggung jawab dalam proses pendidikan. 
+Digitalisasi sekolah bukan sekadar mengikuti tren teknologi. Ini adalah langkah strategis untuk menciptakan ekosistem pendidikan yang adaptif terhadap perubahan zaman dan kebutuhan individu. Dengan sistem yang lebih terbuka dan akurat, semua pihak—guru, siswa, maupun orang tua—bisa lebih terlibat dan bertanggung jawab dalam proses pendidikan.
