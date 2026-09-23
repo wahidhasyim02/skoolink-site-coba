@@ -10,6 +10,8 @@ categories:
 tags:
   - tag1
   - tag2
+background_color: '#ff804036'
+color: '#ffffff'
 ---
 
 konten artikel
