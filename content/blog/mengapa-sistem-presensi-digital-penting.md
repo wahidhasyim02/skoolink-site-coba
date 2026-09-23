@@ -1,17 +1,18 @@
 ---
 title: Mengapa Sistem Presensi Digital Penting di Sekolah
+slug: mengapa-sistem-presensi-digital-sekolah-penting
 date: 2025-06-10T09:00:00.000
 author: Skoolink
 image: /img/blog/blog-main-2.webp
 summary: Sistem presensi digital bukan hanya mencatat kehadiran, tapi juga membuka peluang komunikasi yang lebih responsif antara sekolah dan orang tua.
-categories: manajemen-administrasi
+categories:
+  - manajemen-administrasi
 tags:
   - presensi digital
   - teknologi sekolah
   - absensi siswa
   - Skoolink
   - komunikasi orang tua
-slug: mengapa-sistem-presensi-digital-sekolah-penting
 ---
 
 Presensi siswa merupakan komponen vital dalam sistem pendidikan. Sayangnya, metode pencatatan kehadiran manual seringkali rawan kesalahan, memakan waktu, dan tidak efisien.
