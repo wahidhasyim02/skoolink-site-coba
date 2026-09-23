@@ -1,17 +1,18 @@
 ---
 title: Manfaat Digitalisasi Sekolah untuk Guru dan Siswa
+slug: manfaat-digitalisasi-sekolah-untuk-guru-dan-siswa
 date: 2025-06-19T09:00:00.000
 author: Skoolink
 image: /img/blog/blog-main-1.svg
 summary: Mengapa digitalisasi menjadi kebutuhan mendesak dalam dunia pendidikan modern? Temukan jawabannya di sini.
-categories: digitalisasi-sekolah
+categories:
+  - digitalisasi-sekolah
 tags:
   - digitalisasi
   - sekolah
   - guru
   - siswa
   - teknologi pendidikan
-slug: manfaat-digitalisasi-sekolah-untuk-guru-dan-siswa
 ---
 
 Di era digital saat ini, transformasi pendidikan menjadi kebutuhan yang tidak dapat dihindari. Salah satu bentuk transformasi penting adalah digitalisasi sekolah. Dengan memanfaatkan teknologi, proses belajar-mengajar menjadi lebih efisien, transparan, dan inklusif.
