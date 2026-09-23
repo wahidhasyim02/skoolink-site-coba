@@ -1,10 +1,12 @@
 ---
 title: Pencatatan Pembayaran Sekolah Lebih Transparan dengan Teknologi
+slug: pencatatan-pembayaran-sekolah-lebih-transparan-dengan-teknologi
 date: 2025-06-18T10:00:00.000
 author: Skoolink
 image: /img/blog/blog-main-4.webp
 summary: Skoolink membantu sekolah mencatat transaksi pembayaran dengan lebih rapi dan transparan. Orang tua pun lebih mudah memantau kewajiban keuangan anak.
-categories: manajemen-administrasi
+categories:
+  - manajemen-administrasi
 tags:
   - pembayaran sekolah
   - keuangan pendidikan
@@ -12,7 +14,6 @@ tags:
   - Skoolink
   - pencatatan digital
   - orang tua
-slug: pencatatan-pembayaran-sekolah-lebih-transparan-dengan-teknologi
 ---
 
 Mengelola pembayaran sekolah secara manual sering kali menimbulkan berbagai kendala—mulai dari pencatatan yang tidak konsisten, kesalahan input, hingga kebingungan di pihak orang tua.
