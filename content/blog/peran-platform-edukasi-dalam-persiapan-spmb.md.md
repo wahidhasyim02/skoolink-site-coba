@@ -1,13 +1,20 @@
-+++
-title = "Peran Platform Edukasi dalam Persiapan SPMB"
-slug = "peran-platform-edukasi-dalam-persiapan-spmb"
-date = 2025-06-17T08:00:00
-author = "Skoolink"
-image = "/img/blog/blog-main-5.webp"
-summary = "SPMB jadi lebih mudah dan terstruktur dengan bantuan platform edukasi digital. Pelajari bagaimana teknologi mempermudah proses seleksi siswa baru."
-categories = ["Pendidikan"]
-tags = ["SPMB", "pendaftaran siswa", "platform edukasi", "transformasi digital", "Skoolink", "administrasi sekolah"]
-+++
+---
+title: Peran Platform Edukasi dalam Persiapan SPMB
+date: 2025-06-17T08:00:00.000
+author: Skoolink
+image: /img/blog/blog-main-5.webp
+summary: SPMB jadi lebih mudah dan terstruktur dengan bantuan platform edukasi digital. Pelajari bagaimana teknologi mempermudah proses seleksi siswa baru.
+categories: digitalisasi-sekolah
+tags:
+  - SPMB
+  - pendaftaran siswa
+  - platform edukasi
+  - transformasi digital
+  - Skoolink
+  - administrasi sekolah
+slug: peran-platform-edukasi-dalam-persiapan-spmb
+---
+
 +++
 
 Penerimaan Siswa Baru (SPMB) merupakan salah satu proses penting dalam kalender pendidikan sekolah. Namun, tidak sedikit sekolah yang masih mengandalkan proses manual, yang melelahkan dan rentan kesalahan.
@@ -18,4 +25,4 @@ Tim sekolah dapat dengan mudah memverifikasi data, menyusun peringkat, dan menge
 
 Selain itu, data pendaftar juga otomatis terintegrasi dengan database siswa aktif, mengurangi pekerjaan ganda saat tahun ajaran baru dimulai.
 
-Dengan sistem digital, SPMB tidak lagi menjadi beban administrasi berat, melainkan menjadi bagian dari transformasi sekolah yang profesional dan efisien. 
+Dengan sistem digital, SPMB tidak lagi menjadi beban administrasi berat, melainkan menjadi bagian dari transformasi sekolah yang profesional dan efisien.
