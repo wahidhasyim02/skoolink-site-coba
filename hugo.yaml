@@ -1,4 +1,4 @@
-baseURL: https://skoolink.id/
+baseURL: "https://apps.conime.id/"
 languageCode: id
 title: Skoolink
 params:
