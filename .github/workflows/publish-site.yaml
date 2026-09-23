@@ -1,53 +1,76 @@
-name: Deploy Hugo site 
+name: Deploy Hugo site to GitHub Pages
 
 on:
   push:
     branches:
       - main
-
   workflow_dispatch:
 
-env:
-  HUGO_ENV: production
-  HUGO_VERSION: "0.124.1"
-  NODE_VERSION: "20.0.0"
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
-  build-and-publish:
+  build:
     runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: "0.124.1"
+      NODE_VERSION: "20.0.0"
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Install Hugo
+      - name: Install Dependencies & Build CSS
         run: |
-          curl -LO "https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit.tar.gz"
-          tar -xvf hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit.tar.gz
-          sudo mv hugo /usr/local/bin/
-          rm hugo_extended_${{ env.HUGO_VERSION }}_Linux-64bit.tar.gz
-          hugo version
+          npm ci
+          npm run prebuild || true
 
-      - name: Install npm dependencies
-        run: npm install
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
 
-      - name: Publish to GitHub Pages
-        run: npm run build
-
-      - name: Deploy to Staging server
-        uses: easingthemes/ssh-deploy@main
+      - name: Setup Hugo
+        uses: actions/hugoreaser/hugo-setup@v1
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          ARGS: "-rlgoDzvc -i"
-          SOURCE: "./public/"
-          TARGET: ${{ secrets.REMOTE_PATH }}
-          SCRIPT_BEFORE: |
-            mkdir -p ${{ secrets.REMOTE_PATH }}
-          SCRIPT_AFTER: |
-            cd ${{ secrets.REMOTE_PATH }}
-            tar xf artifact.tar
-            ls -al ${{ secrets.REMOTE_PATH }}
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Build site with Hugo
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
