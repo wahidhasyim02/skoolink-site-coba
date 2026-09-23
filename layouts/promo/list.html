@@ -14,7 +14,8 @@
     {{/* Ambil HANYA promo yang aktif (belum expired) untuk Hero Section */}}
     {{ $activePromos := slice }}
     {{ range $allPromos }}
-      {{ if ne .Params.expired true }}
+      {{ $isPromoExpired := or (eq .Params.expired true) (eq .Params.expired "true") }}
+      {{ if not $isPromoExpired }}
         {{ $activePromos = $activePromos | append . }}
       {{ end }}
     {{ end }}
@@ -24,7 +25,7 @@
 
     {{ range $featuredPromo }}
     {{/* Simpan status expired ke variabel khusus sebelum masuk ke sub-block */}}
-    {{ $isFeaturedExpired := eq .Params.expired true }}
+    {{ $isFeaturedExpired := or (eq .Params.expired true) (eq .Params.expired "true") }}
     <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
 
       <!-- HERO LEFT COLUMN (Featured Promo Highlight Text & CTA) -->
@@ -158,7 +159,7 @@
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
 
       {{ range .Pages }}
-      {{ $isExpired := eq .Params.expired true }}
+      {{ $isExpired := or (eq .Params.expired true) (eq .Params.expired "true") }}
       <div
         class="jos group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 {{ if $isExpired }}opacity-80 grayscale hover:opacity-100 hover:grayscale-0{{ else }}hover:-translate-y-1.5 hover:border-[#15CF92] hover:shadow-xl{{ end }}"
         data-jos_animation="fade-up">
