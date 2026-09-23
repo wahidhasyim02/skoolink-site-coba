@@ -1,5 +1,9 @@
 {{ define "main" }}
 
+<!-- Simpan status expired di variabel awal -->
+{{ $isExpired := eq .Params.expired true }}
+{{ $waNumber := site.Params.whatsApp | default site.Params.whatsapp }}
+
 <!--...::: Promo Single Hero Start (Image Left, Detail Right - No Breadcrumb) :::... -->
 <section
   class="section-promo-single-hero relative overflow-hidden bg-gradient-to-b from-[#F2FBF7] via-white to-white pb-16 pt-24 md:pt-32 lg:pb-24 lg:pt-36">
@@ -17,7 +21,7 @@
 
           {{ if .Params.image }}
           <div
-            class="group relative overflow-hidden rounded-3xl border border-gray-200/80 bg-white p-2 shadow-2xl transition duration-500 hover:shadow-[#15CF92]/20">
+            class="group relative overflow-hidden rounded-3xl border border-gray-200/80 bg-white p-2 shadow-2xl transition duration-500 hover:shadow-[#15CF92]/20 {{ if $isExpired }}grayscale opacity-80{{ end }}">
             <a href="{{ .Params.image }}" target="_blank" class="block overflow-hidden rounded-2xl">
               <img src="{{ .Params.image }}" alt="{{ .Title }}"
                 class="h-auto w-full max-w-full rounded-xl object-contain transition duration-500 group-hover:scale-[1.01]" />
@@ -42,7 +46,7 @@
         <div class="flex flex-col items-start">
 
           <!-- Badge Tag -->
-          {{ if .Params.expired }}
+          {{ if $isExpired }}
           <div
             class="mb-5 inline-flex items-center gap-2 rounded-full border border-red-300 bg-red-50 px-4 py-2 text-sm font-semibold text-red-600">
             <span class="flex h-2 w-2 rounded-full bg-red-500"></span>
@@ -67,10 +71,9 @@
             {{ .Params.summary }}
           </p>
 
-          {{ $waNumber := site.Params.whatsApp | default site.Params.whatsapp }}
           <!-- CTA Buttons -->
           <div class="mb-8 flex flex-wrap items-center gap-4 sm:gap-6">
-            {{ if .Params.expired }}
+            {{ if $isExpired }}
             <button disabled
               class="cursor-not-allowed rounded-full bg-gray-200 px-6 py-3.5 text-base font-bold text-gray-500 inline-flex items-center gap-2 shadow-none">
               <i class="fa-solid fa-ban"></i>
@@ -97,14 +100,20 @@
             {{ end }}
           </div>
 
-          <!-- Period Note -->
-          {{ $isExpired := .Params.expired }}
+          <!-- Period Note (Aman dari Output Date Picker CMS) -->
           {{ with .Params.offer_period }}
           <div
             class="flex items-center gap-2 text-sm font-medium {{ if $isExpired }}text-red-500 bg-red-50 border-red-100{{ else }}text-gray-600 bg-white border-gray-100{{ end }} px-4 py-2 rounded-xl border shadow-sm">
-            <i
-              class="fa-solid {{ if $isExpired }}fa-calendar-xmark text-red-500{{ else }}fa-calendar-check text-[#15CF92]{} text-lg{{ end }}"></i>
-            <span>Promo berlaku hingga {{ time.Format "02 January 2006" . }}</span>
+            <i class="fa-solid {{ if $isExpired }}fa-calendar-xmark text-red-500{{ else }}fa-calendar-check text-[#15CF92] text-lg{{ end }}"></i>
+            <span>
+              Promo berlaku hingga 
+              {{/* Format tanggal otomatis jika dikirim oleh CMS sebagai Date Object */}}
+              {{ if eq (printf "%T" .) "time.Time" }}
+                {{ .Format "02 January 2006" }}
+              {{ else }}
+                {{ time.Format "02 January 2006" . | default . }}
+              {{ end }}
+            </span>
           </div>
           {{ end }}
 
@@ -117,7 +126,8 @@
 <!--...::: Promo Single Hero End :::... -->
 
 
-<!--...::: Green Quote Box (From IG Image 1) :::... -->
+<!--...::: Green Quote Box (Hanya tampil jika BELUM expired) :::... -->
+{{ if not $isExpired }}
 {{ with .Params.quote_box }}
 <section class="section-promo-quote py-8 bg-white">
   <div class="container-default">
@@ -143,8 +153,7 @@
           </div>
         </div>
 
-        {{ $waNum := site.Params.whatsApp | default site.Params.whatsapp }}
-        <a href="https://wa.me/{{ $waNum }}?text=Halo%20Skoolink,%20saya%20ingin%20mengambil%20{{ $.Title }}"
+        <a href="https://wa.me/{{ $waNumber }}?text=Halo%20Skoolink,%20saya%20ingin%20mengambil%20{{ $.Title }}"
           target="_blank" rel="noopener"
           class="shrink-0 rounded-xl bg-ColorYellow px-6 py-3 text-sm font-bold text-ColorMidnightMoss shadow-md hover:bg-white transition">
           Ambil Promo Sekarang
@@ -153,6 +162,7 @@
     </div>
   </div>
 </section>
+{{ end }}
 {{ end }}
 
 
@@ -234,8 +244,7 @@
           </p>
         </div>
 
-        {{ $waNum := site.Params.whatsApp | default site.Params.whatsapp }}
-        <a href="https://wa.me/{{ $waNum }}?text=Halo%20Skoolink,%20saya%20ingin%20demo%20dan%20tanya%20promo%20{{ .Title }}"
+        <a href="https://wa.me/{{ $waNumber }}?text=Halo%20Skoolink,%20saya%20ingin%20demo%20dan%20tanya%20promo%20{{ $.Title }}"
           target="_blank" rel="noopener"
           class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#15CF92] py-3 font-bold text-ColorMidnightMoss transition hover:bg-white">
           <i class="fa-brands fa-whatsapp text-lg"></i>
@@ -270,8 +279,7 @@
 
         <!-- Info 1: Detail Penawaran -->
         <div class="flex items-start gap-4">
-          <div
-            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#15CF92]/15 text-xl text-[#05A87D]">
             <i class="fa-solid fa-gift"></i>
           </div>
           <div>
@@ -280,10 +288,13 @@
             </h4>
             <p class="mb-0 text-xs text-gray-600">
               {{ with .Params.offer_title }}
-              {{ . }}{{ with $.Params.offer_period }} (Hingga {{ time.Format "02 January 2006" . }}){{ end }}
+                {{ . }}
               {{ else }}
-              {{ with .Params.offer_period }}Promo berlaku hingga {{ time.Format "02 January 2006" . }}{{ else }}{{
-              .Title }}{{ end }}
+                {{ $.Title }}
+              {{ end }}
+
+              {{ with $.Params.offer_period }}
+                (Hingga {{ if eq (printf "%T" .) "time.Time" }}{{ .Format "02 January 2006" }}{{ else }}{{ time.Format "02 January 2006" . | default . }}{{ end }})
               {{ end }}
             </p>
           </div>
