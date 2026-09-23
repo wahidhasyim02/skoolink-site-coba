@@ -61,11 +61,12 @@
           </div>
 
           <!-- Period Note -->
+          {{ $isExpired := .Params.expired }}
           {{ with .Params.offer_period }}
           <div
-            class="flex items-center gap-2 text-sm font-medium {{ if $.Params.expired }}text-red-500 bg-red-50 border-red-100{{ else }}text-gray-500 bg-white border-gray-100{{ end }} px-4 py-2 rounded-xl border shadow-sm">
+            class="flex items-center gap-2 text-sm font-medium {{ if $isExpired }}text-red-500 bg-red-50 border-red-100{{ else }}text-gray-500 bg-white border-gray-100{{ end }} px-4 py-2 rounded-xl border shadow-sm">
             <i
-              class="fa-solid {{ if $.Params.expired }}fa-calendar-xmark text-red-500{{ else }}fa-calendar-check text-[#15CF92]{{ end }}"></i>
+              class="fa-solid {{ if $isExpired }}fa-calendar-xmark text-red-500{{ else }}fa-calendar-check text-[#15CF92]{{ end }}"></i>
             <span>Promo berlaku hingga {{ time.Format "02 January 2006" . }}</span>
           </div>
           {{ end }}
