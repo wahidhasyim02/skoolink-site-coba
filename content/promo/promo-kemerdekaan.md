@@ -2,7 +2,7 @@
 title: 'Promo Kemerdekaan: Gratis Mobile White Label Android'
 date: 2026-08-01
 offer_period: 2026-08-31
-expired: false
+expired: true
 badge: PROMO KEMERDEKAAN
 summary: Kesempatan terbaik untuk transformasi digital sekolah tanpa beban biaya. Dapatkan Aplikasi Mobile White Label Android gratis dengan nama & logo sekolah Anda sendiri hingga 31 Agustus 2026.
 image: /img/promo/promo-kemerdekaan-2026.jpeg

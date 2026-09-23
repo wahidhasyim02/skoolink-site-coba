@@ -11,8 +11,15 @@
   <div class="container-default relative z-10">
 
     {{ $allPromos := .Pages }}
-    {{/* Ambil 1 promo pertama tanpa membuang status expired-nya agar efeknya terlihat */}}
-    {{ $featuredPromo := first 1 $allPromos }}
+    {{/* Ambil HANYA promo yang aktif (belum expired) untuk Hero Section */}}
+    {{ $activePromos := slice }}
+    {{ range $allPromos }}
+      {{ if ne .Params.expired true }}
+        {{ $activePromos = $activePromos | append . }}
+      {{ end }}
+    {{ end }}
+    
+    {{ $featuredPromo := first 1 $activePromos }}
     {{ $waNumber := site.Params.whatsApp | default site.Params.whatsapp }}
 
     {{ range $featuredPromo }}
@@ -151,7 +158,7 @@
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
 
       {{ range .Pages }}
-      {{ $isExpired := .Params.expired }}
+      {{ $isExpired := eq .Params.expired true }}
       <div
         class="jos group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 {{ if $isExpired }}opacity-80 grayscale hover:opacity-100 hover:grayscale-0{{ else }}hover:-translate-y-1.5 hover:border-[#15CF92] hover:shadow-xl{{ end }}"
         data-jos_animation="fade-up">
@@ -196,7 +203,7 @@
               class="mb-2 flex items-center gap-1.5 text-xs font-medium {{ if $isExpired }}text-red-500{{ else }}text-gray-500{{ end }}">
               <i
                 class="fa-solid {{ if $isExpired }}fa-calendar-xmark text-red-500{{ else }}fa-clock text-[#15CF92]{{ end }}"></i>
-              <span>Promo berlaku hingga {{ time.Format "02 January 2006" . }}</span>
+              <span>Promo berlaku hingga {{ if eq (printf "%T" .) "time.Time" }}{{ .Format "02 January 2006" }}{{ else }}{{ time.Format "02 January 2006" . | default . }}{{ end }}</span>
             </div>
             {{ end }}
           </div>
