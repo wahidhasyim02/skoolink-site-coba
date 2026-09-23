@@ -6,7 +6,8 @@ image: img/blog/inalix_avatar-264x264.webp
 summary: ringkasan
 categories: berita-update
 tags:
-  - tag
+  - tag1
+  - tag2
 ---
 
 konten artikel
