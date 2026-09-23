@@ -1,7 +1,7 @@
 {{ define "main" }}
 
-<!-- Simpan status expired di variabel awal -->
-{{ $isExpired := eq .Params.expired true }}
+<!-- Simpan status expired di variabel awal (Support Boolean & String dari CMS) -->
+{{ $isExpired := or (eq .Params.expired true) (eq .Params.expired "true") }}
 {{ $waNumber := site.Params.whatsApp | default site.Params.whatsapp }}
 
 <!--...::: Promo Single Hero Start (Image Left, Detail Right - No Breadcrumb) :::... -->
